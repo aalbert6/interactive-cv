@@ -60,6 +60,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.update();
 
 const loader = new GLTFLoader();
+// Desk
 loader.load(
   'assets/models/desk.glb',
   (gltf) => {
@@ -80,6 +81,184 @@ loader.load(
   undefined,
   (err) => console.error('Error cargando modelo:', err)
 );
+//Floor
+loader.load(
+  'assets/models/floor.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.725, 0.72, 0.601);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(0, 0, 0);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+loader.load(
+  'assets/models/floor.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.725, 0.72, 0.72);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(0, 0, 2.3);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+loader.load(
+  'assets/models/floor.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.725, 0.72, 0.71);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(0, 0, -2.3);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+//Bed
+loader.load(
+  'assets/models/bed_frame.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.7, 0.6, 0.7);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(1.62, 0.58, -2.16);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI/2;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+loader.load(
+  'assets/models/bodypillowglb.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.6, 0.6, 0.6);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(3.2, 0.6, -2.16);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI/2;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+loader.load(
+  'assets/models/duvet.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.7, 0.6, 0.7);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(1.25, 0.7, -2.16);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI/2;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+loader.load(
+  'assets/models/pillow1.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.6, 0.6, 0.6);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(2.9, 0.75, -2.6);
+
+    // Rotar para que mire hacia la pared (Z+)
+    //model.rotation.y = Math.PI/2;
+    model.rotation.x = Math.PI/2;
+    model.rotation.z = Math.PI/2;
+    model.rotation.y = -Math.PI/4;
+    
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+loader.load(
+  'assets/models/pillow2.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.6, 0.6, 0.6);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(2.9, 0.75, -1.7);
+
+    // Rotar para que mire hacia la pared (Z+)
+    //model.rotation.y = Math.PI/2;
+    model.rotation.x = Math.PI/2;
+    model.rotation.z = Math.PI/2;
+    model.rotation.y = -Math.PI/4;
+    
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
 
 function animate() {
   requestAnimationFrame(animate);
