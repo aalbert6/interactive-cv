@@ -60,15 +60,37 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.update();
 
 const loader = new GLTFLoader();
+
 // Desk
+  loader.load(
+    'assets/models/desk.glb',
+    (gltf) => {
+      const model = gltf.scene;
+      model.scale.set(0.6, 0.6, 0.6);
+
+      // Posicionar en la esquina inferior izquierda de la habitación
+      model.position.set(-2.1, 0.6, -2.89);
+
+      // Rotar para que mire hacia la pared (Z+)
+      model.rotation.y = Math.PI;
+
+      // Añadir a escena
+      scene.add(model);
+
+      console.log('Modelo cargado correctamente');
+    },
+    undefined,
+    (err) => console.error('Error cargando modelo:', err)
+  );
+
 loader.load(
-  'assets/models/desk.glb',
+  'assets/models/desk_drawer_1.glb',
   (gltf) => {
     const model = gltf.scene;
-    model.scale.set(0.6, 0.6, 0.6);
+    model.scale.set(0.7, 0.7, 0.6);
 
     // Posicionar en la esquina inferior izquierda de la habitación
-    model.position.set(-2.1, 0.6, -2.89);
+    model.position.set(-1.25, 0.4, -2.75);
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI;
@@ -81,6 +103,49 @@ loader.load(
   undefined,
   (err) => console.error('Error cargando modelo:', err)
 );
+
+loader.load(
+  'assets/models/desk_drawer_1.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.7, 0.7, 0.6);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(-1.25, 0.7, -2.75);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+loader.load(
+  'assets/models/desk_drawer_1.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.7, 0.7, 0.6);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(-1.25, 1, -2.75);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
 //Floor
 loader.load(
   'assets/models/floor.glb',
@@ -249,6 +314,177 @@ loader.load(
     model.rotation.z = Math.PI/2;
     model.rotation.y = -Math.PI/4;
     
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+// Window
+loader.load(
+  'assets/models/window.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.9, 0.8, 0.7);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(-1.4, 2.4, -3.4);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = -Math.PI;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+// Rug
+loader.load(
+  'assets/models/rug.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(1, 1, 1);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(-0.4, 0.01, 0);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+// Shelf
+loader.load(
+  'assets/models/shelf.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.8, 0.8, 0.8);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(3.1, 1.27, 2.3);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI / 2;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+// Nightstand
+loader.load(
+  'assets/models/nightstand.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.8, 0.5, 0.7);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(3.2, 0.4, -0.3);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI / 2;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+)
+loader.load(
+  'assets/models/bottom_drawer.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.8, 0.5, 0.7);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(3.11, 0.4, -0.3);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI / 2;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+)
+loader.load(
+  'assets/models/bottom_drawer.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.8, 0.5, 0.7);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(3.11, 0.2, -0.3);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI / 2;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+)
+
+// Chair
+loader.load(
+  'assets/models/gaming_chair_base.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.5, 0.4, 0.5);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(-1.8, 0.49, -1.5);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+loader.load(
+  'assets/models/gaming_chair.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.4, 0.4, 0.4);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(-1.8, 1.5, -1.5);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI/3;
 
     // Añadir a escena
     scene.add(model);
