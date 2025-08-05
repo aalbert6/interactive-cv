@@ -481,7 +481,7 @@ loader.load(
     model.scale.set(0.4, 0.4, 0.4);
 
     // Posicionar en la esquina inferior izquierda de la habitación
-    model.position.set(-1.8, 1.5, -1.5);
+    model.position.set(-1.8, 1.45, -1.5);
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI/3;
