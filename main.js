@@ -494,7 +494,158 @@ loader.load(
   undefined,
   (err) => console.error('Error cargando modelo:', err)
 );
+// DESK SETUP
+// Monitor
+loader.load(
+  'assets/models/monitor.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.6, 0.6, 0.6);
 
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(-2.55, 1.68, -3.1);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+// Keyboard
+loader.load(
+  'assets/models/keyboard.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.5, 0.5, 0.5);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(-2.7, 1.3, -2.6);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+// Mouse
+loader.load(
+  'assets/models/mouse.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.1, 0.1, 0.1);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(-2.1, 1.3, -2.6);
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+// Lamp
+loader.load(
+  'assets/models/flexo.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.15, 0.15, 0.15);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(-1.2, 1.6, -3.1);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI/4 + 2;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+loader.load(
+  'assets/models/lampara.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.15, 0.15, 0.15);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(-1.3, 1.9, -2.9);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI;
+    model.rotation.x = - Math.PI / 4 ;
+    model.rotation.z = Math.PI / 10;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+)
+
+// Books
+loader.load(
+  'assets/models/books_stacked.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.4, 0.4, 0.4);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(-1.3, 1.4, -2.5);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI / 4;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+//PC
+loader.load(
+  'assets/models/pc.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.5, 0.5, 0.5);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(-2.97, 0.52, -2.9);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
 
 function animate() {
   requestAnimationFrame(animate);
