@@ -647,6 +647,117 @@ loader.load(
   (err) => console.error('Error cargando modelo:', err)
 );
 
+// MacBook
+loader.load(
+  'assets/models/macbook.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.2, 0.2, 0.2);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(0.7, 1.085, -1.7);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = -Math.PI/4;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+// Headphones
+loader.load(
+  'assets/models/headphones.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.1, 0.1, 0.1);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(1.45, 0.85, -1.6);
+
+    // Rotar para que mire hacia la pared (Z+)
+
+    model.rotation.x =  Math.PI / 2;
+    //model.rotation.z = Math.PI/2;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+// Katana
+loader.load(
+  'assets/models/katana.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.4, 0.4, 0.4);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(3.1, 2.72, 2.3);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI / 2;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+// FLAGS
+// JPN FLAG
+loader.load(
+  'assets/models/japan_flag.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.75, 0.6, 0.1);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(2.55, 1.9, -3.5);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+// PIRATE FLAG
+loader.load(
+  'assets/models/pirate_flag.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.5, 0.4, 0.1);
+
+    // Posicionar en la esquina inferior izquierda de la habitación
+    model.position.set(2.5, 2.9, -3.5);
+
+    // Rotar para que mire hacia la pared (Z+)
+    model.rotation.y = Math.PI;
+
+    // Añadir a escena
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
