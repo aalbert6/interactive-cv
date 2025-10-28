@@ -151,7 +151,7 @@ loader.load(
   'assets/models/floor.glb',
   (gltf) => {
     const model = gltf.scene;
-    model.scale.set(0.725, 0.72, 0.601);
+    model.scale.set(0.73, 0.72, 0.601);
 
     // Posicionar en la esquina inferior izquierda de la habitación
     model.position.set(0, 0, 0);
@@ -172,10 +172,10 @@ loader.load(
   'assets/models/floor.glb',
   (gltf) => {
     const model = gltf.scene;
-    model.scale.set(0.725, 0.72, 0.72);
+    model.scale.set(0.73, 0.72, 0.699);
 
     // Posicionar en la esquina inferior izquierda de la habitación
-    model.position.set(0, 0, 2.3);
+    model.position.set(0, 0, 2.26);
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI;
@@ -193,7 +193,7 @@ loader.load(
   'assets/models/floor.glb',
   (gltf) => {
     const model = gltf.scene;
-    model.scale.set(0.725, 0.72, 0.71);
+    model.scale.set(0.73, 0.72, 0.72);
 
     // Posicionar en la esquina inferior izquierda de la habitación
     model.position.set(0, 0, -2.3);
