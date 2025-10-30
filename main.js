@@ -17,10 +17,13 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+scene.add(new THREE.AmbientLight(0xffffff, 0.1));
+const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
 dirLight.position.set(5, 10, 7.5);
 scene.add(dirLight);
+const monitorLight = new THREE.PointLight(0x00aaff, 1.2, 3);
+monitorLight.position.set(-2.55, 1.68, -2.98);
+scene.add(monitorLight);
 
 const roomColor = 0xb3aeb4;
 const roomSize = 7;
