@@ -25,6 +25,18 @@ const monitorLight = new THREE.PointLight(0x00aaff, 1.2, 3);
 monitorLight.position.set(-2.55, 1.68, -2.98);
 scene.add(monitorLight);
 
+const screenPlaneGeo = new THREE.PlaneGeometry(0.81, 0.53); // ajusta tamaño
+const screenPlaneMat = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane = new THREE.Mesh(screenPlaneGeo, screenPlaneMat);
+screenPlane.position.set(-2.55, 1.767, -2.97); // coloca frente al monitor real
+scene.add(screenPlane);
+
+
+
 const roomColor = 0xb3aeb4;
 const roomSize = 7;
 const wallHeight = 3.5;
