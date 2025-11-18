@@ -25,16 +25,108 @@ const monitorLight = new THREE.PointLight(0x00aaff, 1.2, 3);
 monitorLight.position.set(-2.55, 1.68, -2.98);
 scene.add(monitorLight);
 
-const screenPlaneGeo = new THREE.PlaneGeometry(0.81, 0.53); // ajusta tamaño
+// Principal plano
+const screenPlaneGeo = new THREE.PlaneGeometry(0.82, 0.53); // ajusta tamaño
 const screenPlaneMat = new THREE.MeshStandardMaterial({
   color: 0x111111,
   emissive: 0x00aaff,
   emissiveIntensity: 3
 });
 const screenPlane = new THREE.Mesh(screenPlaneGeo, screenPlaneMat);
-screenPlane.position.set(-2.55, 1.767, -2.97); // coloca frente al monitor real
+screenPlane.position.set(-2.55, 1.767, -2.9699); // coloca frente al monitor real
 scene.add(screenPlane);
 
+// Plano derecho pequeño 1
+const screenPlaneGeo2 = new THREE.PlaneGeometry(0.25, 0.53); // ajusta tamaño
+const screenPlaneMat2 = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane2 = new THREE.Mesh(screenPlaneGeo2, screenPlaneMat2);
+screenPlane2.position.set(-2, 1.767, -2.915); // coloca frente al monitor real
+scene.add(screenPlane2);
+
+// Plano derecho pequeño 2
+const screenPlaneGeo3 = new THREE.PlaneGeometry(0.15, 0.53); // ajusta tamaño
+const screenPlaneMat3 = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane3 = new THREE.Mesh(screenPlaneGeo3, screenPlaneMat3);
+screenPlane3.position.set(-1.9, 1.7679, -2.859); // coloca frente al monitor real
+scene.add(screenPlane3);
+
+// Plano derecho lateral 2
+const screenPlaneGeo4 = new THREE.PlaneGeometry(0.15, 0.53); // ajusta tamaño
+const screenPlaneMat4 = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane4 = new THREE.Mesh(screenPlaneGeo4, screenPlaneMat4);
+screenPlane4.position.set(-1.951, 1.7679, -2.94); // coloca frente al monitor real
+screenPlane4.rotateY(-Math.PI/2);
+scene.add(screenPlane4);
+
+// Plano derecho lateral 1
+const screenPlaneGeo5 = new THREE.PlaneGeometry(0.15, 0.53); // ajusta tamaño
+const screenPlaneMat5 = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane5 = new THREE.Mesh(screenPlaneGeo5, screenPlaneMat5);
+screenPlane5.position.set(-2.131, 1.7679, -2.98); // coloca frente al monitor real
+screenPlane5.rotateY(-Math.PI/2);
+scene.add(screenPlane5);
+
+// Plano izquierdo pequeño 2
+const screenPlaneGeo6 = new THREE.PlaneGeometry(0.12, 0.53); // ajusta tamaño
+const screenPlaneMat6 = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane6 = new THREE.Mesh(screenPlaneGeo6, screenPlaneMat6);
+screenPlane6.position.set(-3.2, 1.7679, -2.859); // coloca frente al monitor real
+scene.add(screenPlane6);
+
+// Plano izquierdo pequeño 1
+const screenPlaneGeo7 = new THREE.PlaneGeometry(0.25, 0.53); // ajusta tamaño
+const screenPlaneMat7 = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane7 = new THREE.Mesh(screenPlaneGeo7, screenPlaneMat7);
+screenPlane7.position.set(-3.1, 1.767, -2.915); // coloca frente al monitor real
+scene.add(screenPlane7);
+
+// Plano izquierdo lateral 2
+const screenPlaneGeo8 = new THREE.PlaneGeometry(0.15, 0.53); // ajusta tamaño
+const screenPlaneMat8 = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane8 = new THREE.Mesh(screenPlaneGeo8, screenPlaneMat8);
+screenPlane8.position.set(-3.145, 1.7679, -2.94); // coloca frente al monitor real
+screenPlane8.rotateY(Math.PI/2);
+scene.add(screenPlane8);
+
+// Plano izquierdo lateral 1
+const screenPlaneGeo9 = new THREE.PlaneGeometry(0.15, 0.53); // ajusta tamaño
+const screenPlaneMat9 = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane9 = new THREE.Mesh(screenPlaneGeo9, screenPlaneMat9);
+screenPlane9.position.set(-2.965, 1.7679, -2.98); // coloca frente al monitor real
+screenPlane9.rotateY(Math.PI/2);
+scene.add(screenPlane9);
 
 
 const roomColor = 0xb3aeb4;
