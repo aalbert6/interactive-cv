@@ -126,7 +126,7 @@ const screenPlaneMat9 = new THREE.MeshStandardMaterial({
 const screenPlane9 = new THREE.Mesh(screenPlaneGeo9, screenPlaneMat9);
 screenPlane9.position.set(-2.965, 1.7679, -2.98); // coloca frente al monitor real
 screenPlane9.rotateY(Math.PI/2);
-scene.add(screenPlane9);
+scene.add(screenPlane9); 
 
 
 const roomColor = 0xb3aeb4;
