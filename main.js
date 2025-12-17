@@ -17,13 +17,181 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-scene.add(new THREE.AmbientLight(0xffffff, 0.1));
 const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
 dirLight.position.set(5, 10, 7.5);
 scene.add(dirLight);
 const monitorLight = new THREE.PointLight(0x00aaff, 1.2, 3);
 monitorLight.position.set(-2.55, 1.68, -2.98);
 scene.add(monitorLight);
+
+// Principal plano
+const screenPlaneGeo = new THREE.PlaneGeometry(0.82, 0.53); // ajusta tamaño
+const screenPlaneMat = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane = new THREE.Mesh(screenPlaneGeo, screenPlaneMat);
+screenPlane.position.set(-2.55, 1.767, -2.9699); // coloca frente al monitor real
+scene.add(screenPlane);
+
+// Plano derecho pequeño 1
+const screenPlaneGeo2 = new THREE.PlaneGeometry(0.25, 0.53); // ajusta tamaño
+const screenPlaneMat2 = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane2 = new THREE.Mesh(screenPlaneGeo2, screenPlaneMat2);
+screenPlane2.position.set(-2, 1.767, -2.915); // coloca frente al monitor real
+scene.add(screenPlane2);
+
+// Plano derecho pequeño 2
+const screenPlaneGeo3 = new THREE.PlaneGeometry(0.15, 0.53); // ajusta tamaño
+const screenPlaneMat3 = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane3 = new THREE.Mesh(screenPlaneGeo3, screenPlaneMat3);
+screenPlane3.position.set(-1.9, 1.7679, -2.859); // coloca frente al monitor real
+scene.add(screenPlane3);
+
+// Plano derecho lateral 2
+const screenPlaneGeo4 = new THREE.PlaneGeometry(0.15, 0.53); // ajusta tamaño
+const screenPlaneMat4 = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane4 = new THREE.Mesh(screenPlaneGeo4, screenPlaneMat4);
+screenPlane4.position.set(-1.951, 1.7679, -2.94); // coloca frente al monitor real
+screenPlane4.rotateY(-Math.PI/2);
+scene.add(screenPlane4);
+
+// Plano derecho lateral 1
+const screenPlaneGeo5 = new THREE.PlaneGeometry(0.15, 0.53); // ajusta tamaño
+const screenPlaneMat5 = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane5 = new THREE.Mesh(screenPlaneGeo5, screenPlaneMat5);
+screenPlane5.position.set(-2.131, 1.7679, -2.98); // coloca frente al monitor real
+screenPlane5.rotateY(-Math.PI/2);
+scene.add(screenPlane5);
+
+// Plano izquierdo pequeño 2
+const screenPlaneGeo6 = new THREE.PlaneGeometry(0.12, 0.53); // ajusta tamaño
+const screenPlaneMat6 = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane6 = new THREE.Mesh(screenPlaneGeo6, screenPlaneMat6);
+screenPlane6.position.set(-3.2, 1.7679, -2.859); // coloca frente al monitor real
+scene.add(screenPlane6);
+
+// Plano izquierdo pequeño 1
+const screenPlaneGeo7 = new THREE.PlaneGeometry(0.25, 0.53); // ajusta tamaño
+const screenPlaneMat7 = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane7 = new THREE.Mesh(screenPlaneGeo7, screenPlaneMat7);
+screenPlane7.position.set(-3.1, 1.767, -2.915); // coloca frente al monitor real
+scene.add(screenPlane7);
+
+// Plano izquierdo lateral 2
+const screenPlaneGeo8 = new THREE.PlaneGeometry(0.15, 0.53); // ajusta tamaño
+const screenPlaneMat8 = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane8 = new THREE.Mesh(screenPlaneGeo8, screenPlaneMat8);
+screenPlane8.position.set(-3.145, 1.7679, -2.94); // coloca frente al monitor real
+screenPlane8.rotateY(Math.PI/2);
+scene.add(screenPlane8);
+
+// Plano izquierdo lateral 1
+const screenPlaneGeo9 = new THREE.PlaneGeometry(0.15, 0.53); // ajusta tamaño
+const screenPlaneMat9 = new THREE.MeshStandardMaterial({
+  color: 0x111111,
+  emissive: 0x00aaff,
+  emissiveIntensity: 3
+});
+const screenPlane9 = new THREE.Mesh(screenPlaneGeo9, screenPlaneMat9);
+screenPlane9.position.set(-2.965, 1.7679, -2.98); // coloca frente al monitor real
+screenPlane9.rotateY(Math.PI/2);
+scene.add(screenPlane9); 
+
+// Luz ordenador
+const pcLedLight = new THREE.PointLight(0x00ff88, 2, 1.5);
+pcLedLight.position.set(-3, 0.52, -2.9);
+scene.add(pcLedLight);
+
+// Luz escritorio 
+const deskLight = new THREE.SpotLight(0xffaa00, 3);
+deskLight.position.set(-1.3, 1.95, -2.9);
+deskLight.angle = Math.PI / 6;
+deskLight.penumbra = 0.6;
+deskLight.distance = 10;
+scene.add(deskLight.target);
+deskLight.target.position.set(-1.3, 0.9, -2.9);
+scene.add(deskLight);
+
+// Luz mesa de noche
+const lampPanelMaterial = new THREE.MeshStandardMaterial({
+  color: 0xffe0a3,          // color base del papel
+  emissive: 0xffd6a3,       // amarillo/naranja suave
+  emissiveIntensity: 1.0,   // intensidad del brillo
+  transparent: true,
+  opacity: 0.85,
+  roughness: 0.9,           // papel mate
+  metalness: 0.0
+});
+
+const panelWidth  = 0.12;
+const panelHeight = 0.15;
+const panelDepth  = 0.18;
+
+const rightPanel = new THREE.Mesh(
+  new THREE.PlaneGeometry(panelWidth, panelHeight),
+  lampPanelMaterial
+);
+rightPanel.position.set(3.3, 1.25, -0.05);
+scene.add(rightPanel);
+
+const backPanel = new THREE.Mesh(
+  new THREE.PlaneGeometry(panelWidth, panelHeight),
+  lampPanelMaterial
+);
+backPanel.position.set(3.4, 1.25, -0.101);
+backPanel.rotateY(Math.PI / 2);
+scene.add(backPanel);
+
+const frontPanel = new THREE.Mesh(
+  new THREE.PlaneGeometry(panelWidth, panelHeight),
+  lampPanelMaterial
+);
+frontPanel.position.set(3.25, 1.25, -0.101);
+frontPanel.rotateY(-Math.PI / 2);
+scene.add(frontPanel);
+
+const leftPanel = new THREE.Mesh(
+  new THREE.PlaneGeometry(panelWidth, panelHeight),
+  lampPanelMaterial
+);
+leftPanel.position.set(3.3, 1.25, -0.15);
+leftPanel.rotateY(Math.PI);
+scene.add(leftPanel);
+
+// Luz ambiente tenue (general)
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.12); // color + intensidad
+scene.add(ambientLight);
+
 
 const roomColor = 0xb3aeb4;
 const roomSize = 7;
