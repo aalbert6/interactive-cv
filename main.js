@@ -128,6 +128,69 @@ screenPlane9.position.set(-2.965, 1.7679, -2.98); // coloca frente al monitor re
 screenPlane9.rotateY(Math.PI/2);
 scene.add(screenPlane9); 
 
+// Luz ordenador
+const pcLedLight = new THREE.PointLight(0x00ff88, 2, 1.5);
+pcLedLight.position.set(-3, 0.52, -2.9);
+scene.add(pcLedLight);
+
+// Luz escritorio 
+const deskLight = new THREE.SpotLight(0xffaa00, 3);
+deskLight.position.set(-1.3, 1.95, -2.9);
+deskLight.angle = Math.PI / 6;
+deskLight.penumbra = 0.6;
+deskLight.distance = 10;
+scene.add(deskLight.target);
+deskLight.target.position.set(-1.3, 0.9, -2.9);
+scene.add(deskLight);
+
+// Luz mesa de noche
+const lampPanelMaterial = new THREE.MeshStandardMaterial({
+  color: 0xffe0a3,          // color base del papel
+  emissive: 0xffd6a3,       // amarillo/naranja suave
+  emissiveIntensity: 1.0,   // intensidad del brillo
+  transparent: true,
+  opacity: 0.85,
+  roughness: 0.9,           // papel mate
+  metalness: 0.0
+});
+
+const panelWidth  = 0.12;
+const panelHeight = 0.15;
+const panelDepth  = 0.18;
+
+const rightPanel = new THREE.Mesh(
+  new THREE.PlaneGeometry(panelWidth, panelHeight),
+  lampPanelMaterial
+);
+rightPanel.position.set(3.3, 1.25, -0.05);
+scene.add(rightPanel);
+
+const backPanel = new THREE.Mesh(
+  new THREE.PlaneGeometry(panelWidth, panelHeight),
+  lampPanelMaterial
+);
+backPanel.position.set(3.4, 1.25, -0.101);
+backPanel.rotateY(Math.PI / 2);
+scene.add(backPanel);
+
+const frontPanel = new THREE.Mesh(
+  new THREE.PlaneGeometry(panelWidth, panelHeight),
+  lampPanelMaterial
+);
+frontPanel.position.set(3.25, 1.25, -0.101);
+frontPanel.rotateY(-Math.PI / 2);
+scene.add(frontPanel);
+
+const leftPanel = new THREE.Mesh(
+  new THREE.PlaneGeometry(panelWidth, panelHeight),
+  lampPanelMaterial
+);
+leftPanel.position.set(3.3, 1.25, -0.15);
+leftPanel.rotateY(Math.PI);
+scene.add(leftPanel);
+
+
+
 
 const roomColor = 0xb3aeb4;
 const roomSize = 7;
