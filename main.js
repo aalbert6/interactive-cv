@@ -189,7 +189,9 @@ leftPanel.position.set(3.3, 1.25, -0.15);
 leftPanel.rotateY(Math.PI);
 scene.add(leftPanel);
 
-
+// Luz ambiente tenue (general)
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.12); // color + intensidad
+scene.add(ambientLight);
 
 
 const roomColor = 0xb3aeb4;
