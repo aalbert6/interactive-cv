@@ -17,7 +17,6 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-scene.add(new THREE.AmbientLight(0xffffff, 0.1));
 const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
 dirLight.position.set(5, 10, 7.5);
 scene.add(dirLight);
