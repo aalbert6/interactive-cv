@@ -255,7 +255,77 @@ canvas.style.cursor = 'default';
 controls.addEventListener('start', () => canvas.style.cursor = 'grabbing');
 controls.addEventListener('end',   () => canvas.style.cursor = 'default');
 
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+const interactables = [];
 
+let hoveredRoot = null;
+
+window.addEventListener('mousemove', (e) => {
+  const rect = renderer.domElement.getBoundingClientRect();
+  mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+  mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+});
+
+function makeInteractive(root) {
+  root.userData.interactive = true;
+  root.userData.outline = buildOutline(root);  // <- crea el contorno una vez
+  root.userData.outline.visible = false;
+  root.add(root.userData.outline);
+
+  interactables.push(root);
+}
+
+function buildOutline(root) {
+  const outlineGroup = new THREE.Group();
+
+  const outlineMat = new THREE.MeshBasicMaterial({
+    color: 0xeeeeee,          // ✅ blanco apagado
+    side: THREE.BackSide,     // dibuja “por detrás” para parecer contorno
+    depthTest: true,
+    depthWrite: false
+  });
+
+  root.traverse((o) => {
+    if (!o.isMesh) return;
+
+    const outlineMesh = new THREE.Mesh(o.geometry, outlineMat);
+    outlineMesh.position.copy(o.position);
+    outlineMesh.rotation.copy(o.rotation);
+    outlineMesh.scale.copy(o.scale).multiplyScalar(1.08); // grosor del contorno
+
+    outlineMesh.renderOrder = 999; // por si acaso
+    outlineGroup.add(outlineMesh);
+  });
+
+  return outlineGroup;
+}
+
+function findInteractiveRoot(obj) {
+  let cur = obj;
+  while (cur) {
+    if (cur.userData?.interactive) return cur;
+    cur = cur.parent;
+  }
+  return null;
+}
+
+function setOutlineVisible(root, visible) {
+  if (!root?.userData?.outline) return;
+  root.userData.outline.visible = visible;
+}
+
+function updateHover() {
+  raycaster.setFromCamera(mouse, camera);
+  const hits = raycaster.intersectObjects(interactables, true);
+  const newRoot = hits.length ? findInteractiveRoot(hits[0].object) : null;
+
+  if (newRoot !== hoveredRoot) {
+    if (hoveredRoot) setOutlineVisible(hoveredRoot, false);
+    hoveredRoot = newRoot;
+    if (hoveredRoot) setOutlineVisible(hoveredRoot, true);
+  }
+}
 
 
 const loader = new GLTFLoader();
@@ -601,7 +671,6 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI / 2;
-
     // Añadir a escena
     scene.add(model);
 
@@ -706,7 +775,8 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI;
-
+    
+    makeInteractive(model);
     // Añadir a escena
     scene.add(model);
 
@@ -769,7 +839,6 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI/4 + 2;
-
     // Añadir a escena
     scene.add(model);
 
@@ -814,7 +883,7 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI / 4;
-
+    makeInteractive(model);
     // Añadir a escena
     scene.add(model);
 
@@ -836,7 +905,7 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI;
-
+    makeInteractive(model);
     // Añadir a escena
     scene.add(model);
 
@@ -858,7 +927,7 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = -Math.PI/4;
-
+    makeInteractive(model);
     // Añadir a escena
     scene.add(model);
 
@@ -926,7 +995,7 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI;
-
+    makeInteractive(model);
     // Añadir a escena
     scene.add(model);
 
@@ -970,7 +1039,7 @@ loader.load(
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI / 4;
     
-
+    makeInteractive(model);
     // Añadir a escena
     scene.add(model);
 
@@ -1014,7 +1083,7 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI / 8;
-
+    makeInteractive(model);
     // Añadir a escena
     scene.add(model);
 
@@ -1301,7 +1370,7 @@ loader.load('assets/models/trophy.glb', (gltf) => {
 
   // Rotar para que mire hacia la pared (Z+)
   model.rotation.y = Math.PI / 2;
-
+  makeInteractive(model);
   // Añadir a escena
   scene.add(model);
 
@@ -1320,7 +1389,7 @@ loader.load('assets/models/trophy.glb', (gltf) => {
 
   // Rotar para que mire hacia la pared (Z+)
   model.rotation.y = Math.PI / 2;
-
+  makeInteractive(model);
   // Añadir a escena
   scene.add(model);
 
@@ -1390,6 +1459,7 @@ loader.load('assets/models/colonia_3.glb', (gltf) => {
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
+  updateHover();
   renderer.render(scene, camera);
 }
 animate();
