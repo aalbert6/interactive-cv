@@ -11,7 +11,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.set(0, 1.5, 3);
+camera.position.set(-5, 3, 5);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -228,7 +228,35 @@ frontWall.position.set(0, wallHeight / 2, -roomSize / 2);
 scene.add(frontWall);
 
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.enablePan = false;
+
+controls.minDistance = 1.2;
+controls.maxDistance = 6.0;
+
+controls.minPolarAngle = Math.PI * 0.2;
+controls.maxPolarAngle = Math.PI * 0.48;
+
+const RANGE = Math.PI * 0.35
+const center = controls.getAzimuthalAngle();
+
+controls.minAzimuthAngle = center - RANGE;
+controls.maxAzimuthAngle = center + RANGE;
+
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+
+controls.target.set(0,1.2,0);
 controls.update();
+
+
+const canvas = renderer.domElement;
+
+canvas.style.cursor = 'default';
+controls.addEventListener('start', () => canvas.style.cursor = 'grabbing');
+controls.addEventListener('end',   () => canvas.style.cursor = 'default');
+
+
+
 
 const loader = new GLTFLoader();
 
