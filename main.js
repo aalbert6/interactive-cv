@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { openCard } from './cards.js';
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x1a102b); // Morado oscuro estilo voxel
@@ -11,7 +12,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.set(-5, 3, 5);
+camera.position.set(-6, 3, 6);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -261,10 +262,22 @@ const interactables = [];
 
 let hoveredRoot = null;
 
+let isDragging = false;
+controls.addEventListener('start', () => { isDragging = true; });
+controls.addEventListener('end', () => { isDragging = false; });
+
 window.addEventListener('mousemove', (e) => {
   const rect = renderer.domElement.getBoundingClientRect();
   mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
   mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+});
+
+window.addEventListener('click', () => {
+  if (isDragging) return;
+  if (!hoveredRoot) return;
+
+  const cardId = hoveredRoot.userData.id;
+  if (cardId) openCard(cardId);
 });
 
 function makeInteractive(root) {
@@ -776,6 +789,7 @@ loader.load(
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI;
     
+    model.userData.id = 'monitor';
     makeInteractive(model);
     // Añadir a escena
     scene.add(model);
@@ -883,6 +897,7 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI / 4;
+    model.userData.id = 'books';
     makeInteractive(model);
     // Añadir a escena
     scene.add(model);
@@ -905,6 +920,7 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI;
+    model.userData.id = 'pc';
     makeInteractive(model);
     // Añadir a escena
     scene.add(model);
@@ -927,6 +943,7 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = -Math.PI/4;
+    model.userData.id = 'macbook';
     makeInteractive(model);
     // Añadir a escena
     scene.add(model);
@@ -995,6 +1012,7 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI;
+    model.userData.id = 'japan_flag';
     makeInteractive(model);
     // Añadir a escena
     scene.add(model);
@@ -1038,7 +1056,7 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI / 4;
-    
+    model.userData.id = 'phone';
     makeInteractive(model);
     // Añadir a escena
     scene.add(model);
@@ -1083,6 +1101,7 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI / 8;
+    model.userData.id = 'wallet';
     makeInteractive(model);
     // Añadir a escena
     scene.add(model);
@@ -1370,6 +1389,7 @@ loader.load('assets/models/trophy.glb', (gltf) => {
 
   // Rotar para que mire hacia la pared (Z+)
   model.rotation.y = Math.PI / 2;
+  model.userData.id = 'trophy1';
   makeInteractive(model);
   // Añadir a escena
   scene.add(model);
@@ -1389,6 +1409,7 @@ loader.load('assets/models/trophy.glb', (gltf) => {
 
   // Rotar para que mire hacia la pared (Z+)
   model.rotation.y = Math.PI / 2;
+  model.userData.id = 'trophy2';
   makeInteractive(model);
   // Añadir a escena
   scene.add(model);

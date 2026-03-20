@@ -1,0 +1,37 @@
+#info-card {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: min(380px, calc(100vw - 32px));
+  background: rgba(20, 18, 30, 0.94);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 16px;
+  color: rgba(255,255,255,0.92);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+}
+
+#info-card h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+#info-card p {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.35;
+  color: rgba(255,255,255,0.78);
+}
+
+#info-card .close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+}
