@@ -1,16 +1,100 @@
-<button class="close">x</button>
+<div class="reminders-window">
 
-<div class="card-content">
+  <div class="reminders-header">
+    <span class="reminders-dot red close"></span>
+    <span class="reminders-dot yellow"></span>
+    <span class="reminders-dot green"></span>
+    <span class="reminders-title">Competencias</span>
+  </div>
 
-  <h2>Competencias</h2>
+  <div class="reminders-layout">
 
-  <ul>
-    <li>Resolución de problemas</li>
-    <li>Aprendizaje rápido</li>
-    <li>Adaptabilidad</li>
-    <li>Trabajo en equipo</li>
-    <li>Pensamiento analítico</li>
-    <li>Atención al detalle</li>
-  </ul>
+    <aside class="reminders-sidebar">
+      <div class="reminders-search">
+        <input type="text" value="competencias" readonly>
+      </div>
 
+      <div class="reminders-groups">
+        <div class="reminders-group-item active">
+          <span class="group-color blue"></span>
+          <span>Todas</span>
+        </div>
+
+        <div class="reminders-group-item">
+          <span class="group-color orange"></span>
+          <span>Trabajo</span>
+        </div>
+
+        <div class="reminders-group-item">
+          <span class="group-color green"></span>
+          <span>Análisis</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="reminders-content">
+
+      <div class="reminders-main-header">
+        <h2>Competencias</h2>
+        <p>6 completadas · Perfil profesional</p>
+      </div>
+
+      <section class="reminders-section">
+        <h3 class="section-title blue">Resolución y análisis</h3>
+
+        <div class="reminder-row">
+          <span class="reminder-circle checked"></span>
+          <div class="reminder-text">
+            <span class="reminder-name">Resolución de problemas</span>
+            <span class="reminder-subtext">Enfoque práctico y estructurado ante retos técnicos.</span>
+          </div>
+        </div>
+
+        <div class="reminder-row">
+          <span class="reminder-circle checked"></span>
+          <div class="reminder-text">
+            <span class="reminder-name">Pensamiento analítico</span>
+            <span class="reminder-subtext">Capacidad para analizar situaciones y tomar decisiones con criterio.</span>
+          </div>
+        </div>
+
+        <div class="reminder-row">
+          <span class="reminder-circle checked"></span>
+          <div class="reminder-text">
+            <span class="reminder-name">Atención al detalle</span>
+            <span class="reminder-subtext">Precisión en tareas técnicas y revisión de resultados.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="reminders-section">
+        <h3 class="section-title orange">Colaboración y adaptación</h3>
+
+        <div class="reminder-row">
+          <span class="reminder-circle checked"></span>
+          <div class="reminder-text">
+            <span class="reminder-name">Trabajo en equipo</span>
+            <span class="reminder-subtext">Colaboración fluida en entornos multidisciplinares.</span>
+          </div>
+        </div>
+
+        <div class="reminder-row">
+          <span class="reminder-circle checked"></span>
+          <div class="reminder-text">
+            <span class="reminder-name">Adaptabilidad</span>
+            <span class="reminder-subtext">Facilidad para ajustarme a nuevas herramientas y contextos.</span>
+          </div>
+        </div>
+
+        <div class="reminder-row">
+          <span class="reminder-circle checked"></span>
+          <div class="reminder-text">
+            <span class="reminder-name">Aprendizaje rápido</span>
+            <span class="reminder-subtext">Incorporación ágil de conocimientos y procesos nuevos.</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
 </div>

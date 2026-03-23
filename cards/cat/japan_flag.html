@@ -1,14 +1,89 @@
-<button class="close">x</button>
+<div class="dictionary-window">
 
-<div class="card-content">
+  <div class="dictionary-header">
+    <span class="dictionary-dot red close"></span>
+    <span class="dictionary-dot yellow"></span>
+    <span class="dictionary-dot green"></span>
+    <span class="dictionary-title">Diccionari</span>
+  </div>
 
-  <h2>Idiomes</h2>
+  <div class="dictionary-layout">
 
-  <ul>
-    <li>Castellà - Natiu</li>
-    <li>Català - Natiu</li>
-    <li>Anglès - Professional</li>
-    <li>Japonès - Bàsic (en aprenentatge)</li>
-  </ul>
+    <aside class="dictionary-sidebar">
+      <div class="dictionary-search">
+        <input type="text" value="Idiomes" readonly>
+      </div>
 
+      <div class="dictionary-list">
+        <div class="dictionary-item active" data-lang="espanyol">
+          <span class="dictionary-word">Espanyol</span>
+          <span class="dictionary-tag">Nadiu</span>
+        </div>
+
+        <div class="dictionary-item" data-lang="catala">
+          <span class="dictionary-word">Català</span>
+          <span class="dictionary-tag">Nadiu</span>
+        </div>
+
+        <div class="dictionary-item" data-lang="angles">
+          <span class="dictionary-word">Anglès</span>
+          <span class="dictionary-tag">Professional</span>
+        </div>
+
+        <div class="dictionary-item" data-lang="japones">
+          <span class="dictionary-word">Japonès</span>
+          <span class="dictionary-tag">Bàsic</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="dictionary-content">
+
+      <div class="dictionary-entry" data-content="espanyol">
+        <p class="dictionary-entry-type">idioma</p>
+        <h2>Espanyol (C2)</h2>
+        <p class="dictionary-pronunciation">Nivell: Nadiu</p>
+
+        <div class="dictionary-definition">
+          <span class="dictionary-number">1</span>
+          <p>Ús nadiu en contextos personals, acadèmics i professionals.</p>
+        </div>
+      </div>
+
+      <div class="dictionary-entry" data-content="catala" style="display: none;">
+        <p class="dictionary-entry-type">idioma</p>
+        <h2>Català (C2)</h2>
+        <p class="dictionary-pronunciation">Nivell: Nadiu</p>
+
+        <div class="dictionary-definition">
+          <span class="dictionary-number">1</span>
+          <p>Ús nadiu en contextos personals, acadèmics i professionals.</p>
+        </div>
+      </div>
+
+      <div class="dictionary-entry" data-content="angles" style="display: none;">
+        <p class="dictionary-entry-type">idioma</p>
+        <h2>Anglès (B2)</h2>
+        <p class="dictionary-pronunciation">Nivell: Professional</p>
+
+        <div class="dictionary-definition">
+          <span class="dictionary-number">1</span>
+          <p>Capacitat per comunicar-me amb fluïdesa en entorns tècnics i professionals.</p>
+        </div>
+      </div>
+
+      <div class="dictionary-entry" data-content="japones" style="display: none;">
+        <p class="dictionary-entry-type">idioma</p>
+        <h2>Japonès</h2>
+        <p class="dictionary-pronunciation">Nivell: Bàsic · En aprenentatge</p>
+
+        <div class="dictionary-definition">
+          <span class="dictionary-number">1</span>
+          <p>Actualment en aprenentatge, amb coneixements bàsics i progressió contínua.</p>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
 </div>

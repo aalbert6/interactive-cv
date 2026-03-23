@@ -1,16 +1,100 @@
-<button class="close">x</button>
+<div class="reminders-window">
 
-<div class="card-content">
+  <div class="reminders-header">
+    <span class="reminders-dot red close"></span>
+    <span class="reminders-dot yellow"></span>
+    <span class="reminders-dot green"></span>
+    <span class="reminders-title">Competències</span>
+  </div>
 
-  <h2>Competències</h2>
+  <div class="reminders-layout">
 
-  <ul>
-    <li>Resolució de problemes</li>
-    <li>Aprenentatge ràpid</li>
-    <li>Adaptabilitat</li>
-    <li>Treball en equip</li>
-    <li>Pensament analític</li>
-    <li>Atenció al detall</li>
-  </ul>
+    <aside class="reminders-sidebar">
+      <div class="reminders-search">
+        <input type="text" value="competències" readonly>
+      </div>
 
+      <div class="reminders-groups">
+        <div class="reminders-group-item active">
+          <span class="group-color blue"></span>
+          <span>Totes</span>
+        </div>
+
+        <div class="reminders-group-item">
+          <span class="group-color orange"></span>
+          <span>Treball</span>
+        </div>
+
+        <div class="reminders-group-item">
+          <span class="group-color green"></span>
+          <span>Anàlisi</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="reminders-content">
+
+      <div class="reminders-main-header">
+        <h2>Competències</h2>
+        <p>6 completades · Perfil professional</p>
+      </div>
+
+      <section class="reminders-section">
+        <h3 class="section-title blue">Resolució i anàlisi</h3>
+
+        <div class="reminder-row">
+          <span class="reminder-circle checked"></span>
+          <div class="reminder-text">
+            <span class="reminder-name">Resolució de problemes</span>
+            <span class="reminder-subtext">Enfocament pràctic i estructurat davant de reptes tècnics.</span>
+          </div>
+        </div>
+
+        <div class="reminder-row">
+          <span class="reminder-circle checked"></span>
+          <div class="reminder-text">
+            <span class="reminder-name">Pensament analític</span>
+            <span class="reminder-subtext">Capacitat per analitzar situacions i prendre decisions amb criteri.</span>
+          </div>
+        </div>
+
+        <div class="reminder-row">
+          <span class="reminder-circle checked"></span>
+          <div class="reminder-text">
+            <span class="reminder-name">Atenció al detall</span>
+            <span class="reminder-subtext">Precisió en tasques tècniques i revisió de resultats.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="reminders-section">
+        <h3 class="section-title orange">Col·laboració i adaptació</h3>
+
+        <div class="reminder-row">
+          <span class="reminder-circle checked"></span>
+          <div class="reminder-text">
+            <span class="reminder-name">Treball en equip</span>
+            <span class="reminder-subtext">Col·laboració fluida en entorns multidisciplinaris.</span>
+          </div>
+        </div>
+
+        <div class="reminder-row">
+          <span class="reminder-circle checked"></span>
+          <div class="reminder-text">
+            <span class="reminder-name">Adaptabilitat</span>
+            <span class="reminder-subtext">Facilitat per adaptar-me a noves eines i contextos.</span>
+          </div>
+        </div>
+
+        <div class="reminder-row">
+          <span class="reminder-circle checked"></span>
+          <div class="reminder-text">
+            <span class="reminder-name">Aprenentatge ràpid</span>
+            <span class="reminder-subtext">Incorporació àgil de coneixements i processos nous.</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
 </div>

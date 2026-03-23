@@ -1490,3 +1490,42 @@ window.addEventListener("resize", () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+document.addEventListener('click', (e) => {
+
+  const item = e.target.closest('.finder-menu li');
+  if (!item) return;
+
+  // activar selección visual
+  document.querySelectorAll('.finder-menu li').forEach(li => li.classList.remove('active'));
+  item.classList.add('active');
+
+  const filter = item.dataset.filter;
+
+  document.querySelectorAll('.experience-item').forEach(exp => {
+    if (filter === 'all' || exp.dataset.company === filter) {
+      exp.style.display = 'block';
+    } else {
+      exp.style.display = 'none';
+    }
+  });
+
+});
+
+document.addEventListener('click', (e) => {
+  const item = e.target.closest('.dictionary-item');
+  if (!item) return;
+
+  document.querySelectorAll('.dictionary-item').forEach(i => i.classList.remove('active'));
+  item.classList.add('active');
+
+  const lang = item.dataset.lang;
+
+  document.querySelectorAll('.dictionary-entry').forEach(entry => {
+    if (entry.dataset.content === lang) {
+      entry.style.display = 'block';
+    } else {
+      entry.style.display = 'none';
+    }
+  });
+});

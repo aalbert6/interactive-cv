@@ -1,14 +1,89 @@
-<button class="close">x</button>
+<div class="dictionary-window">
 
-<div class="card-content">
+  <div class="dictionary-header">
+    <span class="dictionary-dot red close"></span>
+    <span class="dictionary-dot yellow"></span>
+    <span class="dictionary-dot green"></span>
+    <span class="dictionary-title">Diccionario</span>
+  </div>
 
-  <h2>Idiomas</h2>
+  <div class="dictionary-layout">
 
-  <ul>
-    <li>Español - Nativo</li>
-    <li>Catalán - Nativo</li>
-    <li>Inglés - Profesional</li>
-    <li>Japonés - Básico (en aprendizaje)</li>
-  </ul>
+    <aside class="dictionary-sidebar">
+      <div class="dictionary-search">
+        <input type="text" value="Idiomas" readonly>
+      </div>
 
+      <div class="dictionary-list">
+        <div class="dictionary-item active" data-lang="espanol">
+          <span class="dictionary-word">Español</span>
+          <span class="dictionary-tag">Nativo</span>
+        </div>
+
+        <div class="dictionary-item" data-lang="catalan">
+          <span class="dictionary-word">Catalán</span>
+          <span class="dictionary-tag">Nativo</span>
+        </div>
+
+        <div class="dictionary-item" data-lang="ingles">
+          <span class="dictionary-word">Inglés</span>
+          <span class="dictionary-tag">Profesional</span>
+        </div>
+
+        <div class="dictionary-item" data-lang="japones">
+          <span class="dictionary-word">Japonés</span>
+          <span class="dictionary-tag">Básico</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="dictionary-content">
+
+      <div class="dictionary-entry" data-content="espanol">
+        <p class="dictionary-entry-type">idioma</p>
+        <h2>Español (C2)</h2>
+        <p class="dictionary-pronunciation">Nivel: Nativo</p>
+
+        <div class="dictionary-definition">
+          <span class="dictionary-number">1</span>
+          <p>Uso nativo en contextos personales, académicos y profesionales.</p>
+        </div>
+      </div>
+
+      <div class="dictionary-entry" data-content="catalan" style="display: none;">
+        <p class="dictionary-entry-type">idioma</p>
+        <h2>Catalán (C2)</h2>
+        <p class="dictionary-pronunciation">Nivel: Nativo</p>
+
+        <div class="dictionary-definition">
+          <span class="dictionary-number">1</span>
+          <p>Uso nativo en contextos personales, académicos y profesionales.</p>
+        </div>
+      </div>
+
+      <div class="dictionary-entry" data-content="ingles" style="display: none;">
+        <p class="dictionary-entry-type">idioma</p>
+        <h2>Inglés (B2)</h2>
+        <p class="dictionary-pronunciation">Nivel: Profesional</p>
+
+        <div class="dictionary-definition">
+          <span class="dictionary-number">1</span>
+          <p>Capacidad para comunicarme con fluidez en entornos técnicos y profesionales.</p>
+        </div>
+      </div>
+
+      <div class="dictionary-entry" data-content="japones" style="display: none;">
+        <p class="dictionary-entry-type">idioma</p>
+        <h2>Japonés</h2>
+        <p class="dictionary-pronunciation">Nivel: Básico · En aprendizaje</p>
+
+        <div class="dictionary-definition">
+          <span class="dictionary-number">1</span>
+          <p>Actualmente en aprendizaje, con conocimientos básicos y progresión continua.</p>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
 </div>

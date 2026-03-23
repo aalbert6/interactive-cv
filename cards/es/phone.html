@@ -1,37 +1,58 @@
-<button class="close">x</button>
+<div class="card-content mac-window app-mail">
 
-<div class="card-content">
-
-  <h2>Contacto</h2>
-
-  <form id="contact-form">
-
-    <label for="name">Nombre</label>
-    <input id="name" type="text" name="name" required />
-
-    <label for="email">Correo electrónico</label>
-    <input id="email" type="email" name="email" required />
-
-    <label for="message">Mensaje</label>
-    <textarea id="message" name="message" rows="4" required></textarea>
-
-    <button type="submit">Enviar</button>
-
-  </form>
-
-  <p id="form-status"></p>
-
-  <div class="contact-extra">
-    <p>También puedes contactarme a través de:</p>
-    <div class="contact-actions">
-  <button type="button" class="contact-link-btn" data-url="https://www.linkedin.com/in/albert-reina-buxo/">
-    LinkedIn
-  </button>
-
-  <button type="button" class="contact-link-btn" data-url="https://github.com/aalbert6">
-    GitHub
-  </button>
-</div>
+  <div class="mac-titlebar">
+    <div class="mac-traffic-lights">
+      <button class="mac-dot mac-close close" aria-label="Close"></button>
+      <button class="mac-dot mac-minimize" aria-label="Minimize"></button>
+      <button class="mac-dot mac-maximize" aria-label="Maximize"></button>
+    </div>
+    <div class="mac-title">Contacta conmigo</div>
   </div>
 
+  <div class="mac-body mail-body">
+
+    <div class="mail-compose-header">
+      <h2>Nuevo Mensaje</h2>
+      <div class="mail-right">
+
+        <div class="social-buttons">
+          <button type="button" class="contact-link-btn" data-url="https://www.linkedin.com/in/albert-reina-buxo/">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+          </button>
+
+          <button type="button" class="contact-link-btn" data-url="https://github.com/aalbert6">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+          </button>
+        </div>
+        <button type="submit" form="contact-form" class="mail-send-btn">Enviar</button>
+      </div>
+    </div>
+
+    <form id="contact-form" class="mail-form">
+
+      <div class="mail-row">
+        <label for="name">De:</label>
+        <input id="name" type="text" name="name" placeholder="Tu nombre" required />
+      </div>
+
+      <div class="mail-row">
+        <label for="email">Para:</label>
+        <input id="email" type="email" name="email" placeholder="tu@email.com" required />
+      </div>
+
+      <div class="mail-row">
+        <label for="subject">Asunto:</label>
+        <input id="subject" type="text" name="subject" placeholder="Asunto" />
+      </div>
+
+      <div class="mail-message-wrap">
+        <textarea id="message" name="message" placeholder="Escribe tu mensaje..." required></textarea>
+      </div>
+
+    </form>
+
+    <p id="form-status"></p>
+
+
+  </div>
 </div>

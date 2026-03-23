@@ -1,36 +1,58 @@
-<button class="close">x</button>
+<div class="card-content mac-window app-mail">
 
-<div class="card-content">
+  <div class="mac-titlebar">
+    <div class="mac-traffic-lights">
+      <button class="mac-dot mac-close close" aria-label="Close"></button>
+      <button class="mac-dot mac-minimize" aria-label="Minimize"></button>
+      <button class="mac-dot mac-maximize" aria-label="Maximize"></button>
+    </div>
+    <div class="mac-title">Contacta amb mi</div>
+  </div>
 
-  <h2>Contacte</h2>
+  <div class="mac-body mail-body">
 
-  <form id="contact-form">
+    <div class="mail-compose-header">
+      <h2>Nou Missatge</h2>
+      <div class="mail-right">
 
-    <label for="name">Nom</label>
-    <input id="name" type="text" name="name" required />
+        <div class="social-buttons">
+          <button type="button" class="contact-link-btn" data-url="https://www.linkedin.com/in/albert-reina-buxo/">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+          </button>
 
-    <label for="email">Correu electrònic</label>
-    <input id="email" type="email" name="email" required />
+          <button type="button" class="contact-link-btn" data-url="https://github.com/aalbert6">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+          </button>
+        </div>
+        <button type="submit" form="contact-form" class="mail-send-btn">Enviar</button>
+      </div>
+    </div>
 
-    <label for="message">Missatge</label>
-    <textarea id="message" name="message" rows="4" required></textarea>
+    <form id="contact-form" class="mail-form">
 
-    <button type="submit">Enviar</button>
+      <div class="mail-row">
+        <label for="name">De:</label>
+        <input id="name" type="text" name="name" placeholder="El teu nom" required />
+      </div>
 
-  </form>
+      <div class="mail-row">
+        <label for="email">Per a:</label>
+        <input id="email" type="email" name="email" placeholder="elteu@email.com" required />
+      </div>
 
-  <p id="form-status"></p>
+      <div class="mail-row">
+        <label for="subject">Assumpte:</label>
+        <input id="subject" type="text" name="subject" placeholder="Assumpte" />
+      </div>
 
-  <div class="contact-extra">
-    <p>També pots contactarme vía:</p>
-    <div class="contact-actions">
-  <button type="button" class="contact-link-btn" data-url="https://www.linkedin.com/in/albert-reina-buxo/">
-    LinkedIn
-  </button>
+      <div class="mail-message-wrap">
+        <textarea id="message" name="message" placeholder="Escriu el teu missatge..." required></textarea>
+      </div>
 
-  <button type="button" class="contact-link-btn" data-url="https://github.com/aalbert6">
-    GitHub
-  </button>
-</div>
+    </form>
 
+    <p id="form-status"></p>
+
+
+  </div>
 </div>

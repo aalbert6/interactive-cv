@@ -1,27 +1,50 @@
-<button class="close">x</button>
+<div class="notes-window">
 
-<div class="card-content">
-
-  <h2>Educació</h2>
-
-  <!-- Grau -->
-  <div class="education-block">
-    <h3>Universitat Politècnica de Catalunya (UPC)</h3>
-    <p><em>Setembre 2019 - Juny 2025</em></p>
-
-    <p>
-      Grau en Enginyeria Informàtica - Especialitat en Eninyeria del Software
-    </p>
+  <div class="notes-header">
+    <span class="notes-dot red close"></span>
+    <span class="notes-dot yellow"></span>
+    <span class="notes-dot green"></span>
+    <span class="notes-title">Educació</span>
   </div>
 
-  <!-- Màster -->
-  <div class="education-block">
-    <h3>Universitat Oberta de Catalunya (UOC)</h3>
-    <p><em>2026 - Actualitat</em></p>
+  <div class="notes-layout">
 
-    <p>
-      Màster Universitari en Ciberseguretat i Privadesa
-    </p>
+    <aside class="notes-sidebar">
+      <div class="notes-sidebar-title">Notes</div>
+
+      <div class="notes-item active" data-note="main">
+        <h4>Formació acadèmica</h4>
+        <p>Grau + Màster</p>
+      </div>
+
+      <div class="notes-item" data-note="future">
+        <h4>Formació contínua</h4>
+        <p>En progrés...</p>
+      </div>
+    </aside>
+
+    <main class="notes-content">
+      <div class="note-page" data-content="main">
+        <h2>Educació</h2>
+        <p class="note-meta">Actualitzat recentment</p>
+
+        <div class="education-block">
+          <h3>Universitat Politècnica de Catalunya (UPC)</h3>
+          <p class="date">Setembre 2019 - Juny 2025</p>
+          <p>
+            Grau en Enginyeria Informàtica - Especialitat en Enginyeria del Software
+          </p>
+        </div>
+
+        <div class="education-block">
+          <h3>Universitat Oberta de Catalunya (UOC)</h3>
+          <p class="date">2026 - Actualitat</p>
+          <p>
+            Màster Universitari en Ciberseguretat i Privacitat
+          </p>
+        </div>
+      </div>
+    </main>
+
   </div>
-
 </div>
