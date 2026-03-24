@@ -1,6 +1,10 @@
 export let isCardOpen = false;
 const cardEl = document.getElementById('info-card');
-let currentLang = 'es';
+let currentLang = localStorage.getItem('lang') || 'es';
+
+export function setCardLanguage(lang) {
+  currentLang = lang;
+}
 
 function getFormMessage(type) {
   const messages = {
@@ -26,6 +30,7 @@ function getFormMessage(type) {
 
 export async function openCard(cardId) {
   isCardOpen = true;
+  currentLang = localStorage.getItem('lang') || currentLang || 'es';
   const url = `/cards/${currentLang}/${cardId}.html`;
   console.log('Loading card:', url);
 

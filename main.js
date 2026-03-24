@@ -1,8 +1,54 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { openCard, isCardOpen } from './cards.js';
+import { openCard, isCardOpen, setCardLanguage } from './cards.js';
 
+let currentLang = localStorage.getItem('lang') || 'es';
+
+const translations = {
+  es: {
+    about: 'Sobre mí',
+    skills: 'Habilidades',
+    education: 'Educación',
+    experience: 'Experiencia',
+    projects: 'Proyectos',
+    certifications: 'Certificaciones',
+    competencies: 'Competencias',
+    languages: 'Idiomas',
+    contact: 'Contacto',
+    language: 'Idioma',
+    appearance: 'Apariencia',
+    darkMode: 'Modo oscuro'
+  },
+  ca: {
+    about: 'Sobre mi',
+    skills: 'Habilitats',
+    education: 'Educació',
+    experience: 'Experiència',
+    projects: 'Projectes',
+    certifications: 'Certificacions',
+    competencies: 'Competències',
+    languages: 'Idiomes',
+    contact: 'Contacte',
+    language: 'Idioma',
+    appearance: 'Aparença',
+    darkMode: 'Mode fosc'
+  },
+  en: {
+    about: 'About',
+    skills: 'Skills',
+    education: 'Education',
+    experience: 'Experience',
+    projects: 'Projects',
+    certifications: 'Certifications',
+    competencies: 'Competencies',
+    languages: 'Languages',
+    contact: 'Contact',
+    language: 'Language',
+    appearance: 'Appearance',
+    darkMode: 'Dark mode'
+  }
+};
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x1a102b); // Morado oscuro estilo voxel
 
@@ -1530,7 +1576,43 @@ document.addEventListener('click', (e) => {
     }
   });
 });
+function getCurrentLocale() {
+  if (currentLang === 'ca') return 'ca-ES';
+  if (currentLang === 'en') return 'en-US';
+  return 'es-ES';
+}
 
+function capitalizeWords(text) {
+  return text
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+function updateDateTime() {
+  const el = document.getElementById('menu-datetime');
+  if (!el) return;
+
+  const now = new Date();
+
+  const options = {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    hour: '2-digit',
+    minute: '2-digit'
+  };
+
+  let formatted = now.toLocaleString(getCurrentLocale(), options);
+  formatted = capitalizeWords(formatted);
+
+  el.textContent = formatted;
+}
+
+// actualizar cada minuto
+applyLanguageSelection(currentLang);
+updateDateTime();
+setInterval(updateDateTime, 60000);
 document.addEventListener('click', (e) => {
   const btn = e.target.closest('.appstore-btn');
   if (!btn) return;
@@ -1538,3 +1620,84 @@ document.addEventListener('click', (e) => {
   const url = btn.dataset.url;
   if (url) window.open(url, '_blank');
 });
+
+document.querySelectorAll('.menu-item[data-card]').forEach(item => {
+  item.addEventListener('click', () => {
+    const id = item.dataset.card;
+    openCard(id);
+  });
+});
+
+const controlToggle = document.getElementById('control-toggle');
+const controlCenter = document.getElementById('control-center');
+const darkModeToggle = document.getElementById('darkmode-toggle');
+
+if (controlToggle && controlCenter) {
+  controlToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    controlCenter.classList.toggle('hidden');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#control-center') && !e.target.closest('#control-toggle')) {
+      controlCenter.classList.add('hidden');
+    }
+  });
+}
+
+function updateStaticTexts(lang) {
+  const langTexts = translations[lang] || translations.es;
+
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.dataset.key;
+    if (langTexts[key]) {
+      el.textContent = langTexts[key];
+    }
+  });
+
+  document.documentElement.lang = lang;
+}
+
+function applyLanguageSelection(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  setCardLanguage(lang);
+
+  document.querySelectorAll('[data-lang]').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  updateStaticTexts(lang);
+  updateDateTime();
+}
+
+document.querySelectorAll('[data-lang]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.dataset.lang;
+    applyLanguageSelection(lang);
+  });
+});
+
+if (darkModeToggle) {
+  darkModeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDark);
+    updateDarkModeUI();
+  });
+}
+
+const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+if (savedDarkMode) {
+  document.body.classList.add('dark-mode');
+}
+updateDarkModeUI();
+
+function updateDarkModeUI() {
+  const isDark = document.body.classList.contains('dark-mode');
+
+  if (darkModeToggle) {
+    darkModeToggle.classList.toggle('active', isDark);
+  }
+}

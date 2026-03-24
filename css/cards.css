@@ -1391,9 +1391,6 @@ body {
 /* =========================
    DICTIONARY APP
 ========================= */
-/* =========================
-   DICTIONARY APP
-========================= */
 .dictionary-window {
   width: min(820px, 92vw);
   max-height: 82vh;
@@ -1835,4 +1832,152 @@ body {
   .reminders-main-header h2 {
     font-size: 34px;
   }
+}
+/* =========================
+   MENU SUPERIOR
+========================= */
+.mac-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* <- clave */
+  padding: 0 12px;
+  box-sizing: border-box; /* <- importante */
+
+  background: rgba(26, 16, 43, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: white;
+  font-size: 13px;
+  z-index: 99999;
+}
+
+.menu-left {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.menu-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* <- extra seguridad */
+  gap: 12px;
+}
+
+.menu-item {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.menu-item:hover {
+  opacity: 1;
+}
+
+.menu-status-btn {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.menu-status-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.menu-datetime {
+  font-size: 12px;
+  opacity: 0.9;
+  white-space: nowrap;
+}
+
+/* =========================
+   CONTROL CENTER
+========================= */
+.control-center {
+  position: fixed;
+  top: 36px;
+  right: 12px;
+  width: 220px;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(35, 35, 45, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  z-index: 100000;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.control-section + .control-section {
+  margin-top: 14px;
+}
+
+.control-title {
+  margin: 0 0 8px;
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.control-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.control-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.wide-btn {
+  width: 100%;
+  text-align: center;
+}
+
+body.dark-mode {
+  filter: brightness(0.82);
+}
+.control-btn.active {
+  background: rgba(10, 132, 255, 0.9);
+  color: white;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08) inset;
+}
+.control-btn.active:hover {
+  background: rgba(10, 132, 255, 1);
+}
+.control-btn.active {
+  background: rgba(10, 132, 255, 0.9);
+  color: white;
+}
+.control-section .control-btn {
+  flex: 1;
+}
+.control-section:last-child .control-btn {
+  width: 100%;
 }
