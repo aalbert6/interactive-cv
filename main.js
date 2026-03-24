@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { openCard, isCardOpen } from './cards.js';
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x1a102b); // Morado oscuro estilo voxel
@@ -11,7 +12,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.set(-5, 3, 5);
+camera.position.set(-6, 3, 6);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -255,7 +256,90 @@ canvas.style.cursor = 'default';
 controls.addEventListener('start', () => canvas.style.cursor = 'grabbing');
 controls.addEventListener('end',   () => canvas.style.cursor = 'default');
 
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+const interactables = [];
 
+let hoveredRoot = null;
+
+let isDragging = false;
+controls.addEventListener('start', () => { isDragging = true; });
+controls.addEventListener('end', () => { isDragging = false; });
+
+window.addEventListener('mousemove', (e) => {
+  const rect = renderer.domElement.getBoundingClientRect();
+  mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+  mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+});
+
+window.addEventListener('click', () => {
+  if (isDragging) return;
+  if (!hoveredRoot) return;
+  if (isCardOpen) return; // evita abrir otra tarjeta si ya hay una abierta
+
+  const cardId = hoveredRoot.userData.id;
+  if (cardId) openCard(cardId);
+});
+
+function makeInteractive(root) {
+  root.userData.interactive = true;
+  root.userData.outline = buildOutline(root);  // <- crea el contorno una vez
+  root.userData.outline.visible = false;
+  root.add(root.userData.outline);
+
+  interactables.push(root);
+}
+
+function buildOutline(root) {
+  const outlineGroup = new THREE.Group();
+
+  const outlineMat = new THREE.MeshBasicMaterial({
+    color: 0xeeeeee,          // ✅ blanco apagado
+    side: THREE.BackSide,     // dibuja “por detrás” para parecer contorno
+    depthTest: true,
+    depthWrite: false
+  });
+
+  root.traverse((o) => {
+    if (!o.isMesh) return;
+
+    const outlineMesh = new THREE.Mesh(o.geometry, outlineMat);
+    outlineMesh.position.copy(o.position);
+    outlineMesh.rotation.copy(o.rotation);
+    outlineMesh.scale.copy(o.scale).multiplyScalar(1.08); // grosor del contorno
+
+    outlineMesh.renderOrder = 999; // por si acaso
+    outlineGroup.add(outlineMesh);
+  });
+
+  return outlineGroup;
+}
+
+function findInteractiveRoot(obj) {
+  let cur = obj;
+  while (cur) {
+    if (cur.userData?.interactive) return cur;
+    cur = cur.parent;
+  }
+  return null;
+}
+
+function setOutlineVisible(root, visible) {
+  if (!root?.userData?.outline) return;
+  root.userData.outline.visible = visible;
+}
+
+function updateHover() {
+  raycaster.setFromCamera(mouse, camera);
+  const hits = raycaster.intersectObjects(interactables, true);
+  const newRoot = hits.length ? findInteractiveRoot(hits[0].object) : null;
+
+  if (newRoot !== hoveredRoot) {
+    if (hoveredRoot) setOutlineVisible(hoveredRoot, false);
+    hoveredRoot = newRoot;
+    if (hoveredRoot) setOutlineVisible(hoveredRoot, true);
+  }
+}
 
 
 const loader = new GLTFLoader();
@@ -601,7 +685,6 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI / 2;
-
     // Añadir a escena
     scene.add(model);
 
@@ -706,7 +789,9 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI;
-
+    
+    model.userData.id = 'monitor';
+    makeInteractive(model);
     // Añadir a escena
     scene.add(model);
 
@@ -769,7 +854,6 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI/4 + 2;
-
     // Añadir a escena
     scene.add(model);
 
@@ -814,7 +898,8 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI / 4;
-
+    model.userData.id = 'books';
+    makeInteractive(model);
     // Añadir a escena
     scene.add(model);
 
@@ -836,7 +921,8 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI;
-
+    model.userData.id = 'pc';
+    makeInteractive(model);
     // Añadir a escena
     scene.add(model);
 
@@ -858,7 +944,8 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = -Math.PI/4;
-
+    model.userData.id = 'macbook';
+    makeInteractive(model);
     // Añadir a escena
     scene.add(model);
 
@@ -926,7 +1013,8 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI;
-
+    model.userData.id = 'japan_flag';
+    makeInteractive(model);
     // Añadir a escena
     scene.add(model);
 
@@ -969,8 +1057,8 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI / 4;
-    
-
+    model.userData.id = 'phone';
+    makeInteractive(model);
     // Añadir a escena
     scene.add(model);
 
@@ -1014,7 +1102,8 @@ loader.load(
 
     // Rotar para que mire hacia la pared (Z+)
     model.rotation.y = Math.PI / 8;
-
+    model.userData.id = 'wallet';
+    makeInteractive(model);
     // Añadir a escena
     scene.add(model);
 
@@ -1301,7 +1390,8 @@ loader.load('assets/models/trophy.glb', (gltf) => {
 
   // Rotar para que mire hacia la pared (Z+)
   model.rotation.y = Math.PI / 2;
-
+  model.userData.id = 'trophy1';
+  makeInteractive(model);
   // Añadir a escena
   scene.add(model);
 
@@ -1320,7 +1410,8 @@ loader.load('assets/models/trophy.glb', (gltf) => {
 
   // Rotar para que mire hacia la pared (Z+)
   model.rotation.y = Math.PI / 2;
-
+  model.userData.id = 'trophy2';
+  makeInteractive(model);
   // Añadir a escena
   scene.add(model);
 
@@ -1390,6 +1481,7 @@ loader.load('assets/models/colonia_3.glb', (gltf) => {
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
+  updateHover();
   renderer.render(scene, camera);
 }
 animate();
@@ -1398,4 +1490,51 @@ window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+document.addEventListener('click', (e) => {
+
+  const item = e.target.closest('.finder-menu li');
+  if (!item) return;
+
+  // activar selección visual
+  document.querySelectorAll('.finder-menu li').forEach(li => li.classList.remove('active'));
+  item.classList.add('active');
+
+  const filter = item.dataset.filter;
+
+  document.querySelectorAll('.experience-item').forEach(exp => {
+    if (filter === 'all' || exp.dataset.company === filter) {
+      exp.style.display = 'block';
+    } else {
+      exp.style.display = 'none';
+    }
+  });
+
+});
+
+document.addEventListener('click', (e) => {
+  const item = e.target.closest('.dictionary-item');
+  if (!item) return;
+
+  document.querySelectorAll('.dictionary-item').forEach(i => i.classList.remove('active'));
+  item.classList.add('active');
+
+  const lang = item.dataset.lang;
+
+  document.querySelectorAll('.dictionary-entry').forEach(entry => {
+    if (entry.dataset.content === lang) {
+      entry.style.display = 'block';
+    } else {
+      entry.style.display = 'none';
+    }
+  });
+});
+
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.appstore-btn');
+  if (!btn) return;
+
+  const url = btn.dataset.url;
+  if (url) window.open(url, '_blank');
 });

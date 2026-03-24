@@ -1,0 +1,52 @@
+<div class="card-content mac-window app-mail">
+
+  <div class="mac-titlebar">
+    <div class="mac-traffic-lights">
+      <button class="mac-dot mac-close close" aria-label="Close"></button>
+      <button class="mac-dot mac-minimize" aria-label="Minimize"></button>
+      <button class="mac-dot mac-maximize" aria-label="Maximize"></button>
+    </div>
+    <div class="mac-title">Contact me</div>
+  </div>
+
+  <div class="mac-body mail-body">
+
+    <div class="mail-compose-header">
+      <h2>New Message</h2>
+      <button type="button" class="contact-link-btn" data-url="https://www.linkedin.com/in/albert-reina-buxo/">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+      </button>
+      <button type="button" class="contact-link-btn" data-url="https://github.com/aalbert6">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+      </button>
+      <button type="submit" form="contact-form" class="mail-send-btn">Send</button>
+    </div>
+
+    <form id="contact-form" class="mail-form">
+
+      <div class="mail-row">
+        <label for="name">To:</label>
+        <input id="name" type="text" name="name" placeholder="Your name" required />
+      </div>
+
+      <div class="mail-row">
+        <label for="email">From:</label>
+        <input id="email" type="email" name="email" placeholder="your@email.com" required />
+      </div>
+
+      <div class="mail-row">
+        <label for="subject">Subject:</label>
+        <input id="subject" type="text" name="subject" placeholder="Subject" />
+      </div>
+
+      <div class="mail-message-wrap">
+        <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+      </div>
+
+    </form>
+
+    <p id="form-status"></p>
+
+
+  </div>
+</div>
