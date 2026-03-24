@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { openCard } from './cards.js';
+import { openCard, isCardOpen } from './cards.js';
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x1a102b); // Morado oscuro estilo voxel
@@ -275,6 +275,7 @@ window.addEventListener('mousemove', (e) => {
 window.addEventListener('click', () => {
   if (isDragging) return;
   if (!hoveredRoot) return;
+  if (isCardOpen) return; // evita abrir otra tarjeta si ya hay una abierta
 
   const cardId = hoveredRoot.userData.id;
   if (cardId) openCard(cardId);
@@ -1528,4 +1529,12 @@ document.addEventListener('click', (e) => {
       entry.style.display = 'none';
     }
   });
+});
+
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.appstore-btn');
+  if (!btn) return;
+
+  const url = btn.dataset.url;
+  if (url) window.open(url, '_blank');
 });

@@ -1035,6 +1035,11 @@ body {
   align-items: center;
 }
 
+.featured-app-top {
+  position: relative;
+  z-index: 10;
+}
+
 .featured-app-icon {
   width: 92px;
   height: 92px;
@@ -1085,6 +1090,7 @@ body {
   cursor: pointer;
   box-shadow: 0 6px 16px rgba(10, 132, 255, 0.22);
 }
+
 
 .appstore-btn:hover {
   filter: brightness(1.03);

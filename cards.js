@@ -1,3 +1,4 @@
+export let isCardOpen = false;
 const cardEl = document.getElementById('info-card');
 let currentLang = 'es';
 
@@ -24,6 +25,7 @@ function getFormMessage(type) {
 }
 
 export async function openCard(cardId) {
+  isCardOpen = true;
   const url = `/cards/${currentLang}/${cardId}.html`;
   console.log('Loading card:', url);
 
@@ -90,4 +92,5 @@ export async function openCard(cardId) {
 function closeCard() {
   cardEl.hidden = true;
   cardEl.innerHTML = '';
+  isCardOpen = false;
 }
