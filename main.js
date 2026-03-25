@@ -717,8 +717,6 @@ loader.load(
     model.position.set(-2.1, 0.6, -2.89);
     model.rotation.y = Math.PI;
     scene.add(model);
-
-    console.log('Model loaded successfully: desk');
   },
   undefined,
   (err) => console.error('Error loading model: desk', err)
@@ -733,8 +731,6 @@ loader.load(
     model.position.set(-1.25, 0.4, -2.75);
     model.rotation.y = Math.PI;
     scene.add(model);
-
-    console.log('Model loaded successfully: desk drawer');
   },
   undefined,
   (err) => console.error('Error loading model: desk drawer', err)
@@ -748,8 +744,6 @@ loader.load(
     model.position.set(-1.25, 0.7, -2.75);
     model.rotation.y = Math.PI;
     scene.add(model);
-
-    console.log('Model loaded successfully: desk drawer');
   },
   undefined,
   (err) => console.error('Error loading model: desk drawer', err)
@@ -763,8 +757,6 @@ loader.load(
     model.position.set(-1.25, 1, -2.75);
     model.rotation.y = Math.PI;
     scene.add(model);
-
-    console.log('Model loaded successfully: desk drawer');
   },
   undefined,
   (err) => console.error('Error loading model: desk drawer', err)
@@ -782,8 +774,6 @@ loader.load(
     model.position.set(0, 0, 0);
     model.rotation.y = Math.PI;
     scene.add(model);
-
-    console.log('Model loaded successfully: floor tile');
   },
   undefined,
   (err) => console.error('Error loading model: floor tile', err)
@@ -797,8 +787,6 @@ loader.load(
     model.position.set(0, 0, 2.26);
     model.rotation.y = Math.PI;
     scene.add(model);
-
-    console.log('Model loaded successfully: floor tile');
   },
   undefined,
   (err) => console.error('Error loading model: floor tile', err)
@@ -812,8 +800,6 @@ loader.load(
     model.position.set(0, 0, -2.3);
     model.rotation.y = Math.PI;
     scene.add(model);
-
-    console.log('Model loaded successfully: floor tile');
   },
   undefined,
   (err) => console.error('Error loading model: floor tile', err)
@@ -831,8 +817,6 @@ loader.load(
     model.position.set(1.62, 0.58, -2.16);
     model.rotation.y = Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: bed frame');
   },
   undefined,
   (err) => console.error('Error loading model: bed frame', err)
@@ -846,8 +830,6 @@ loader.load(
     model.position.set(3.2, 0.6, -2.16);
     model.rotation.y = Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: body pillow');
   },
   undefined,
   (err) => console.error('Error loading model: body pillow', err)
@@ -861,8 +843,6 @@ loader.load(
     model.position.set(1.25, 0.7, -2.16);
     model.rotation.y = Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: duvet');
   },
   undefined,
   (err) => console.error('Error loading model: duvet', err)
@@ -879,8 +859,6 @@ loader.load(
     model.rotation.z = Math.PI / 2;
     model.rotation.y = -Math.PI / 4;
     scene.add(model);
-
-    console.log('Model loaded successfully: pillow 1');
   },
   undefined,
   (err) => console.error('Error loading model: pillow 1', err)
@@ -896,8 +874,6 @@ loader.load(
     model.rotation.z = Math.PI / 2;
     model.rotation.y = -Math.PI / 4;
     scene.add(model);
-
-    console.log('Model loaded successfully: pillow 2');
   },
   undefined,
   (err) => console.error('Error loading model: pillow 2', err)
@@ -915,8 +891,6 @@ loader.load(
     model.position.set(-1.4, 2.4, -3.4);
     model.rotation.y = -Math.PI;
     scene.add(model);
-
-    console.log('Model loaded successfully: window');
   },
   undefined,
   (err) => console.error('Error loading model: window', err)
@@ -930,8 +904,6 @@ loader.load(
     model.position.set(-0.4, 0.01, 0);
     model.rotation.y = Math.PI;
     scene.add(model);
-
-    console.log('Model loaded successfully: rug');
   },
   undefined,
   (err) => console.error('Error loading model: rug', err)
@@ -949,8 +921,6 @@ loader.load(
     model.position.set(3.1, 1.27, 2.3);
     model.rotation.y = Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: shelf');
   },
   undefined,
   (err) => console.error('Error loading model: shelf', err)
@@ -964,8 +934,6 @@ loader.load(
     model.position.set(3.2, 0.4, -0.3);
     model.rotation.y = Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: nightstand');
   },
   undefined,
   (err) => console.error('Error loading model: nightstand', err)
@@ -980,8 +948,6 @@ loader.load(
     model.position.set(3.11, 0.4, -0.3);
     model.rotation.y = Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: bottom drawer');
   },
   undefined,
   (err) => console.error('Error loading model: bottom drawer', err)
@@ -995,8 +961,6 @@ loader.load(
     model.position.set(3.11, 0.2, -0.3);
     model.rotation.y = Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: bottom drawer');
   },
   undefined,
   (err) => console.error('Error loading model: bottom drawer', err)
@@ -1014,8 +978,6 @@ loader.load(
     model.position.set(-1.8, 0.49, -1.5);
     model.rotation.y = Math.PI;
     scene.add(model);
-
-    console.log('Model loaded successfully: gaming chair base');
   },
   undefined,
   (err) => console.error('Error loading model: gaming chair base', err)
@@ -1029,8 +991,6 @@ loader.load(
     model.position.set(-1.8, 1.45, -1.5);
     model.rotation.y = Math.PI / 3;
     scene.add(model);
-
-    console.log('Model loaded successfully: gaming chair');
   },
   undefined,
   (err) => console.error('Error loading model: gaming chair', err)
@@ -1051,8 +1011,6 @@ loader.load(
     model.userData.id = 'monitor';
     makeInteractive(model);
     scene.add(model);
-
-    console.log('Model loaded successfully: monitor');
   },
   undefined,
   (err) => console.error('Error loading model: monitor', err)
@@ -1066,8 +1024,6 @@ loader.load(
     model.position.set(-2.7, 1.3, -2.6);
     model.rotation.y = Math.PI;
     scene.add(model);
-
-    console.log('Model loaded successfully: keyboard');
   },
   undefined,
   (err) => console.error('Error loading model: keyboard', err)
@@ -1080,8 +1036,6 @@ loader.load(
     model.scale.set(0.1, 0.1, 0.1);
     model.position.set(-2.1, 1.3, -2.6);
     scene.add(model);
-
-    console.log('Model loaded successfully: mouse');
   },
   undefined,
   (err) => console.error('Error loading model: mouse', err)
@@ -1095,8 +1049,6 @@ loader.load(
     model.position.set(-1.2, 1.6, -3.1);
     model.rotation.y = Math.PI / 4 + 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: desk lamp');
   },
   undefined,
   (err) => console.error('Error loading model: desk lamp', err)
@@ -1112,8 +1064,6 @@ loader.load(
     model.rotation.x = -Math.PI / 4;
     model.rotation.z = Math.PI / 10;
     scene.add(model);
-
-    console.log('Model loaded successfully: desk light');
   },
   undefined,
   (err) => console.error('Error loading model: desk light', err)
@@ -1130,8 +1080,6 @@ loader.load(
     model.userData.id = 'books';
     makeInteractive(model);
     scene.add(model);
-
-    console.log('Model loaded successfully: stacked books');
   },
   undefined,
   (err) => console.error('Error loading model: stacked books', err)
@@ -1148,8 +1096,6 @@ loader.load(
     model.userData.id = 'pc';
     makeInteractive(model);
     scene.add(model);
-
-    console.log('Model loaded successfully: pc');
   },
   undefined,
   (err) => console.error('Error loading model: pc', err)
@@ -1166,8 +1112,6 @@ loader.load(
     model.userData.id = 'macbook';
     makeInteractive(model);
     scene.add(model);
-
-    console.log('Model loaded successfully: macbook');
   },
   undefined,
   (err) => console.error('Error loading model: macbook', err)
@@ -1181,8 +1125,6 @@ loader.load(
     model.position.set(1.45, 0.85, -1.6);
     model.rotation.x = Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: headphones');
   },
   undefined,
   (err) => console.error('Error loading model: headphones', err)
@@ -1200,8 +1142,6 @@ loader.load(
     model.position.set(3.1, 2.72, 2.3);
     model.rotation.y = Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: katana');
   },
   undefined,
   (err) => console.error('Error loading model: katana', err)
@@ -1218,8 +1158,6 @@ loader.load(
     model.userData.id = 'japan_flag';
     makeInteractive(model);
     scene.add(model);
-
-    console.log('Model loaded successfully: japan flag');
   },
   undefined,
   (err) => console.error('Error loading model: japan flag', err)
@@ -1233,8 +1171,6 @@ loader.load(
     model.position.set(2.5, 2.9, -3.5);
     model.rotation.y = Math.PI;
     scene.add(model);
-
-    console.log('Model loaded successfully: pirate flag');
   },
   undefined,
   (err) => console.error('Error loading model: pirate flag', err)
@@ -1248,8 +1184,6 @@ loader.load(
     model.position.set(3.49, 2.3, -2.5);
     model.rotation.y = Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: poster 1');
   },
   undefined,
   (err) => console.error('Error loading model: poster 1', err)
@@ -1263,8 +1197,6 @@ loader.load(
     model.position.set(3.49, 2.9, -2.5);
     model.rotation.y = Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: poster 2');
   },
   undefined,
   (err) => console.error('Error loading model: poster 2', err)
@@ -1278,8 +1210,6 @@ loader.load(
     model.position.set(3.49, 2.5, -1.5);
     model.rotation.y = Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: poster 3');
   },
   undefined,
   (err) => console.error('Error loading model: poster 3', err)
@@ -1293,8 +1223,6 @@ loader.load(
     model.position.set(3.49, 2.5, 0.1);
     model.rotation.y = Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: neon');
   },
   undefined,
   (err) => console.error('Error loading model: neon', err)
@@ -1311,8 +1239,6 @@ loader.load(
     model.scale.set(0.2, 0.2, 0.2);
     model.position.set(3.3, 1.1, -0.1);
     scene.add(model);
-
-    console.log('Model loaded successfully: japanese light');
   },
   undefined,
   (err) => console.error('Error loading model: japanese light', err)
@@ -1329,8 +1255,6 @@ loader.load(
     model.userData.id = 'phone';
     makeInteractive(model);
     scene.add(model);
-
-    console.log('Modelo cargado correctamente');
   },
   undefined,
   (err) => console.error('Error cargando modelo:', err)
@@ -1347,8 +1271,6 @@ loader.load(
     model.userData.id = 'wallet';
     makeInteractive(model);
     scene.add(model);
-
-    console.log('Model loaded successfully: wallet');
   },
   undefined,
   (err) => console.error('Error loading model: wallet', err)
@@ -1362,8 +1284,6 @@ loader.load(
     model.position.set(3, 0.8, -0.1);
     model.rotation.y = Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: gameboy');
   },
   undefined,
   (err) => console.error('Error loading model: gameboy', err)
@@ -1377,8 +1297,6 @@ loader.load(
     model.position.set(3.1, 0.7, 2.7);
     model.rotation.y = Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: gothic books');
   },
   undefined,
   (err) => console.error('Error loading model: gothic books', err)
@@ -1392,8 +1310,6 @@ loader.load(
     model.position.set(3.1, 0.7, 1.9);
     model.rotation.y = Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: daruma');
   },
   undefined,
   (err) => console.error('Error loading model: daruma', err)
@@ -1407,8 +1323,6 @@ loader.load(
     model.position.set(3.1, 1.3, 1.75);
     model.rotation.y = -Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: dragon books');
   },
   undefined,
   (err) => console.error('Error loading model: dragon books', err)
@@ -1423,8 +1337,6 @@ loader.load(
     model.position.set(3.1, 1.3, 3.1);
     model.rotation.y = Math.PI;
     scene.add(model);
-
-    console.log('Model loaded successfully: single book');
   },
   undefined,
   (err) => console.error('Error loading model: single book', err)
@@ -1438,8 +1350,6 @@ loader.load(
     model.position.set(3.1, 1.3, 2.89);
     model.rotation.y = Math.PI;
     scene.add(model);
-
-    console.log('Model loaded successfully: single book');
   },
   undefined,
   (err) => console.error('Error loading model: single book', err)
@@ -1453,8 +1363,6 @@ loader.load(
     model.position.set(3.1, 1.3, 2.73);
     model.rotation.y = Math.PI;
     scene.add(model);
-
-    console.log('Model loaded successfully: single book');
   },
   undefined,
   (err) => console.error('Error loading model: single book', err)
@@ -1468,8 +1376,6 @@ loader.load(
     model.position.set(3.1, 1.3, 2.58);
     model.rotation.y = Math.PI;
     scene.add(model);
-
-    console.log('Model loaded successfully: single book');
   },
   undefined,
   (err) => console.error('Error loading model: single book', err)
@@ -1483,8 +1389,6 @@ loader.load(
     model.position.set(3, 1.25, 2.3);
     model.rotation.y = Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: pokeball');
   },
   undefined,
   (err) => console.error('Error loading model: pokeball', err)
@@ -1501,8 +1405,6 @@ loader.load(
     model.userData.id = 'trophy1';
     makeInteractive(model);
     scene.add(model);
-
-    console.log('Model loaded successfully: trophy 1');
   },
   undefined,
   (err) => console.error('Error loading model: trophy 1', err)
@@ -1518,8 +1420,6 @@ loader.load(
     model.userData.id = 'trophy2';
     makeInteractive(model);
     scene.add(model);
-
-    console.log('Model loaded successfully: trophy 2');
   },
   undefined,
   (err) => console.error('Error loading model: trophy 2', err)
@@ -1534,8 +1434,6 @@ loader.load(
     model.position.set(3, 1.9, 1.8);
     model.rotation.y = -Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: perfume bottle 1');
   },
   undefined,
   (err) => console.error('Error loading model: perfume bottle 1', err)
@@ -1549,8 +1447,6 @@ loader.load(
     model.position.set(3, 1.9, 1.8);
     model.rotation.y = -Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: perfume bottle 2');
   },
   undefined,
   (err) => console.error('Error loading model: perfume bottle 2', err)
@@ -1564,8 +1460,6 @@ loader.load(
     model.position.set(3, 1.9, 1.8);
     model.rotation.y = -Math.PI / 2;
     scene.add(model);
-
-    console.log('Model loaded successfully: perfume bottle 3');
   },
   undefined,
   (err) => console.error('Error loading model: perfume bottle 3', err)
