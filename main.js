@@ -15,6 +15,7 @@ let currentLang = localStorage.getItem('lang') || 'es'; // current language stat
 let activeCardId = null; // active card status
 const IDLE_DELAY = 120000; // 2 minutes idle 
 let idleTimer = null; // timer reference for idle hint
+const BASE_PATH = '/interactive-cv'; // base path for fetching card content
 
 /* ---------------------------------- */
 /*          DOM references            */

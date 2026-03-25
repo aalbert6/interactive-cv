@@ -2,6 +2,7 @@
 export let isCardOpen = false;
 const cardEl = document.getElementById('info-card');
 let currentLang = localStorage.getItem('lang') || 'es';
+const BASE_PATH = '/interactive-cv';
 
 /* Language Settings Function */
 export function setCardLanguage(lang) {
@@ -35,7 +36,7 @@ function getFormMessage(type) {
 export async function openCard(cardId) {
   isCardOpen = true;
   currentLang = localStorage.getItem('lang') || currentLang || 'es';
-  const url = `./cards/${currentLang}/${cardId}.html`;
+  const url = `${BASE_PATH}/cards/${currentLang}/${cardId}.html`;
   console.log('Loading card:', url);
 
   try {
