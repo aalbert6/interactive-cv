@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Currículum 3D</title>
+  <link rel="stylesheet" href="./css/cards.css">
+  <style>
+    body { margin: 0; overflow: hidden; }
+    canvas { display: block; }
+  </style>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.156.1/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.156.1/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <!-- macOs style menu -->
+  <div class="mac-menu">
+    <div class="menu-left">
+      <span class="menu-item apple"></span>
+      <span class="menu-item" data-card="monitor" data-key="about">About</span>
+      <span class="menu-item" data-card="pc" data-key="skills">Skills</span>
+      <span class="menu-item" data-card="books" data-key="education">Education</span>
+      <span class="menu-item" data-card="macbook" data-key="experience">Experience</span>
+      <span class="menu-item" data-card="trophy1" data-key="projects">Projects</span>
+      <span class="menu-item" data-card="trophy2" data-key="certifications">Certifications</span>
+      <span class="menu-item" data-card="wallet" data-key="competencies">Competencies</span>
+      <span class="menu-item" data-card="japan_flag" data-key="languages">Languages</span>
+      <span class="menu-item" data-card="phone" data-key="contact">Contact</span>
+    </div>
+    <!-- Configuration + Date Time-->
+    <div class="menu-right">
+      <button id="control-toggle" class="menu-status-btn" aria-label="Control Center">
+        ⚙
+      </button>
+      <span id="menu-datetime" class="menu-datetime"></span>
+    </div>
+  </div>
+  <!--Control Center-->
+  <div id="control-center" class="control-center hidden">
+    <!--Language selector-->
+    <div class="control-section">
+      <p class="control-title" data-key="language">Idioma</p>
+      <div class="control-buttons">
+          <button class="control-btn" data-lang="ca">CAT</button>
+          <button class="control-btn" data-lang="es">ES</button>
+          <button class="control-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+    <!--Dark Mode-->
+    <div class="control-section">
+      <p class="control-title" data-key="appearance">Apariencia</p>
+      <button id="darkmode-toggle" class="control-btn" data-toggle="dark" data-key="darkMode">
+        Modo oscuro
+      </button>
+    </div>
+  </div>
+  <!-- IDLE Notification-->
+  <div id="idle-hint" class="idle-hint hidden">
+    <div class="idle-hint-box">
+      <div class="idle-hint-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22Zm6-6V11a6 6 0 1 0-12 0v5l-2 2v1h16v-1l-2-2Z"
+            fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="idle-hint-text" data-key="idleHint">
+        Interactúa con algún objeto<br>
+        para descubrir la información
+      </div>
+    </div>
+  </div>
+  <!-- Info Card -->
+  <div id="info-card" hidden></div>
+
+  <!-- Main Script -->
+  <script type="module" src="main.js"></script>
+</body>
+</html>
