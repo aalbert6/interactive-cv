@@ -16,6 +16,7 @@ let activeCardId = null; // active card status
 const IDLE_DELAY = 120000; // 2 minutes idle 
 let idleTimer = null; // timer reference for idle hint
 const BASE_PATH = '/interactive-cv'; // base path for fetching card content
+const isMobile = window.innerWidth <= 768;
 
 /* ---------------------------------- */
 /*          DOM references            */
@@ -350,6 +351,19 @@ controls.dampingFactor = 0.05;
 
 controls.target.set(0,1.2,0);
 controls.update();
+
+if (isMobile) { // Mobile-optimized camera position and controls
+  camera.position.set(-5, 2.8, 5.5);
+
+  controls.minDistance = 2.2;
+  controls.maxDistance = 5.2;
+
+  controls.minPolarAngle = Math.PI * 0.25;
+  controls.maxPolarAngle = Math.PI * 0.44;
+
+  controls.target.set(0, 1.15, 0);
+  controls.update();
+}
 
 // Interaction Setup
 const canvas = renderer.domElement;
@@ -1482,6 +1496,28 @@ window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
+
+  const mobileView = window.innerWidth <= 768;
+
+  if (mobileView) {
+    camera.position.set(-5, 2.8, 5.5);
+
+    controls.minDistance = 2.2;
+    controls.maxDistance = 5.2;
+    controls.minPolarAngle = Math.PI * 0.25;
+    controls.maxPolarAngle = Math.PI * 0.44;
+    controls.target.set(0, 1.15, 0);
+  } else {
+    camera.position.set(-6, 3, 6);
+
+    controls.minDistance = 1.2;
+    controls.maxDistance = 6.0;
+    controls.minPolarAngle = Math.PI * 0.2;
+    controls.maxPolarAngle = Math.PI * 0.48;
+    controls.target.set(0, 1.2, 0);
+  }
+
+  controls.update();
 });
 
 
