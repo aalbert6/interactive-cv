@@ -20,6 +20,7 @@
 </head>
 
 <body>
+  <!-- macOs style menu -->
   <div class="mac-menu">
     <div class="menu-left">
       <span class="menu-item apple"></span>
@@ -33,7 +34,7 @@
       <span class="menu-item" data-card="japan_flag" data-key="languages">Languages</span>
       <span class="menu-item" data-card="phone" data-key="contact">Contact</span>
     </div>
-
+    <!-- Configuration + Date Time-->
     <div class="menu-right">
       <button id="control-toggle" class="menu-status-btn" aria-label="Control Center">
         ⚙
@@ -41,7 +42,9 @@
       <span id="menu-datetime" class="menu-datetime"></span>
     </div>
   </div>
+  <!--Control Center-->
   <div id="control-center" class="control-center hidden">
+    <!--Language selector-->
     <div class="control-section">
       <p class="control-title" data-key="language">Idioma</p>
       <div class="control-buttons">
@@ -50,7 +53,7 @@
           <button class="control-btn" data-lang="en">EN</button>
       </div>
     </div>
-
+    <!--Dark Mode-->
     <div class="control-section">
       <p class="control-title" data-key="appearance">Apariencia</p>
       <button id="darkmode-toggle" class="control-btn" data-toggle="dark" data-key="darkMode">
@@ -58,6 +61,7 @@
       </button>
     </div>
   </div>
+  <!-- IDLE Notification-->
   <div id="idle-hint" class="idle-hint hidden">
     <div class="idle-hint-box">
       <div class="idle-hint-icon">
@@ -72,9 +76,10 @@
       </div>
     </div>
   </div>
+  <!-- Info Card -->
   <div id="info-card" hidden></div>
 
-
+  <!-- Main Script -->
   <script type="module" src="main.js"></script>
 </body>
 </html>
