@@ -352,16 +352,16 @@ controls.dampingFactor = 0.05;
 controls.target.set(0,1.2,0);
 controls.update();
 
-if (isMobile) { // Mobile-optimized camera position and controls
-  camera.position.set(-5, 2.8, 5.5);
+if (isMobile) { // mobile-optimized camera position and controls
+  camera.position.set(-8.5, 6.8, 8.5);
 
-  controls.minDistance = 2.2;
-  controls.maxDistance = 5.2;
+  controls.minDistance = 6.5;
+  controls.maxDistance = 11;
 
-  controls.minPolarAngle = Math.PI * 0.25;
-  controls.maxPolarAngle = Math.PI * 0.44;
+  controls.minPolarAngle = Math.PI * 0.22;
+  controls.maxPolarAngle = Math.PI * 0.34;
 
-  controls.target.set(0, 1.15, 0);
+  controls.target.set(0.4, 1.6, 0.2);
   controls.update();
 }
 
