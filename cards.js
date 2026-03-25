@@ -1,11 +1,14 @@
+/* Declarations */
 export let isCardOpen = false;
 const cardEl = document.getElementById('info-card');
 let currentLang = localStorage.getItem('lang') || 'es';
 
+/* Language Settings Function */
 export function setCardLanguage(lang) {
   currentLang = lang;
 }
 
+/* From Response Message Function*/
 function getFormMessage(type) {
   const messages = {
     es: {
@@ -28,6 +31,7 @@ function getFormMessage(type) {
   return messages[currentLang][type];
 }
 
+/* Open Card Function */
 export async function openCard(cardId) {
   isCardOpen = true;
   currentLang = localStorage.getItem('lang') || currentLang || 'es';
@@ -41,13 +45,13 @@ export async function openCard(cardId) {
     cardEl.innerHTML = await res.text();
     cardEl.hidden = false;
 
-    // Botón cerrar
+    // Close button
     const closeBtn = cardEl.querySelector('.close');
     if (closeBtn) {
       closeBtn.addEventListener('click', closeCard);
     }
 
-    // Botones externos (LinkedIn / GitHub / etc.)
+    // External buttons (Git, LinkedIn, etc)
     const linkButtons = cardEl.querySelectorAll('.contact-link-btn');
     linkButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -58,7 +62,7 @@ export async function openCard(cardId) {
       });
     });
 
-    // Formulario de contacto (solo existe en phone.html)
+    // Contact form (only in the phone card)
     const form = cardEl.querySelector('#contact-form');
     if (form) {
       form.addEventListener('submit', async (e) => {
@@ -87,13 +91,14 @@ export async function openCard(cardId) {
         }
       });
     }
-  } catch (e) {
+  } catch (e) { // Error handling
     console.error(e);
     cardEl.innerHTML = `<p>Error cargando tarjeta</p>`;
     cardEl.hidden = false;
   }
 }
 
+/* Close Card Function */
 function closeCard() {
   cardEl.hidden = true;
   cardEl.innerHTML = '';
