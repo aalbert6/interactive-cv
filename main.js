@@ -4,6 +4,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { openCard, isCardOpen, setCardLanguage } from './cards.js';
 
 let currentLang = localStorage.getItem('lang') || 'es';
+let activeCardId = null;
 
 const translations = {
   es: {
@@ -324,7 +325,10 @@ window.addEventListener('click', () => {
   if (isCardOpen) return; // evita abrir otra tarjeta si ya hay una abierta
 
   const cardId = hoveredRoot.userData.id;
-  if (cardId) openCard(cardId);
+  if (cardId){
+    activeCardId = cardId;
+    openCard(cardId);
+  }
 });
 
 function makeInteractive(root) {
@@ -1624,6 +1628,7 @@ document.addEventListener('click', (e) => {
 document.querySelectorAll('.menu-item[data-card]').forEach(item => {
   item.addEventListener('click', () => {
     const id = item.dataset.card;
+    activeCardId = id;
     openCard(id);
   });
 });
@@ -1669,12 +1674,20 @@ function applyLanguageSelection(lang) {
 
   updateStaticTexts(lang);
   updateDateTime();
+
+  if (isCardOpen && activeCardId) {
+    openCard(activeCardId);
+  }
 }
 
 document.querySelectorAll('[data-lang]').forEach(btn => {
   btn.addEventListener('click', () => {
     const lang = btn.dataset.lang;
     applyLanguageSelection(lang);
+
+    if (controlCenter) {
+      controlCenter.classList.add('hidden');
+    }
   });
 });
 
@@ -1685,6 +1698,10 @@ if (darkModeToggle) {
     const isDark = document.body.classList.contains('dark-mode');
     localStorage.setItem('darkMode', isDark);
     updateDarkModeUI();
+
+    if (controlCenter) {
+      controlCenter.classList.add('hidden');
+    }
   });
 }
 
