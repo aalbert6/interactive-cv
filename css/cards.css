@@ -1551,10 +1551,46 @@ body {
 @media (max-width: 720px) {
   .dictionary-layout {
     grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
   }
 
   .dictionary-sidebar {
+    display: block;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 12px 14px;
+  }
+
+  .dictionary-search {
     display: none;
+  }
+
+  .dictionary-list {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .dictionary-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dictionary-item {
+    flex: 0 0 auto;
+    min-width: 120px;
+    padding: 10px 12px;
+  }
+
+  .dictionary-word {
+    font-size: 13px;
+  }
+
+  .dictionary-tag {
+    font-size: 11px;
   }
 
   .dictionary-content {
@@ -2466,7 +2502,17 @@ body.dark-mode .idle-hint-box {
   .appstore-body,
   .wallet-body,
   .terminal-body {
+    overflow-y: auto;
+    max-height: calc(100dvh - 102px);
     -webkit-overflow-scrolling: touch;
+  }
+
+  .finder-body,
+  .reminders-layout,
+  .dictionary-layout,
+  .notes-layout {
+    min-height: 0;
+    max-height: calc(100dvh - 102px);
   }
 
   /* Terminal */
