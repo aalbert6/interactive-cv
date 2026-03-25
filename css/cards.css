@@ -519,7 +519,7 @@ body {
 
 .terminal-window {
   width: min(800px, 92vw);
-  max-height: 82vh;
+  max-height: 88vh;
   overflow: hidden;
   border-radius: 12px;
   background: #1e1e1e;
@@ -558,7 +558,7 @@ body {
   line-height: 1.6;
   overflow-x: auto;
   overflow-y: auto;
-  max-height: calc(82vh - 44px);
+  max-height: calc(88vh - 40px);
 }
 
 .terminal-body pre {
