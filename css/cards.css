@@ -1959,10 +1959,6 @@ body {
   width: 100%;
   text-align: center;
 }
-
-body.dark-mode {
-  filter: brightness(0.82);
-}
 .control-btn.active {
   background: rgba(10, 132, 255, 0.9);
   color: white;
@@ -1980,4 +1976,349 @@ body.dark-mode {
 }
 .control-section:last-child .control-btn {
   width: 100%;
+}
+
+/* =========================
+   DARK MODE REAL
+========================= */
+
+body.dark-mode #info-card::before {
+  background: rgba(0, 0, 0, 0.68);
+}
+
+/* Ventanas base */
+body.dark-mode .mac-window,
+body.dark-mode .finder-window,
+body.dark-mode .notes-window,
+body.dark-mode .appstore-window,
+body.dark-mode .wallet-window,
+body.dark-mode .dictionary-window,
+body.dark-mode .reminders-window {
+  background: rgba(28, 28, 32, 0.96);
+  color: #f5f5f7;
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+}
+
+/* Titlebars */
+body.dark-mode .mac-titlebar,
+body.dark-mode .finder-header,
+body.dark-mode .notes-header,
+body.dark-mode .appstore-header,
+body.dark-mode .wallet-header,
+body.dark-mode .dictionary-header,
+body.dark-mode .reminders-header,
+body.dark-mode .terminal-header {
+  background: linear-gradient(180deg, #2a2a2e, #1f1f23);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+/* Títulos de ventana */
+body.dark-mode .mac-title,
+body.dark-mode .finder-title,
+body.dark-mode .notes-title,
+body.dark-mode .appstore-title,
+body.dark-mode .wallet-title,
+body.dark-mode .dictionary-title,
+body.dark-mode .reminders-title,
+body.dark-mode .terminal-title {
+  color: #f5f5f7;
+}
+
+/* Body general */
+body.dark-mode .mac-body,
+body.dark-mode .finder-content,
+body.dark-mode .notes-content,
+body.dark-mode .appstore-body,
+body.dark-mode .wallet-body,
+body.dark-mode .dictionary-content,
+body.dark-mode .reminders-content {
+  background: rgba(24, 24, 28, 0.96);
+  color: #f5f5f7;
+}
+
+/* Textos generales */
+body.dark-mode .mac-body h2,
+body.dark-mode .mac-body h3,
+body.dark-mode .mac-body p,
+body.dark-mode .mac-body ul,
+body.dark-mode .finder-content h2,
+body.dark-mode .finder-content h3,
+body.dark-mode .finder-content p,
+body.dark-mode .finder-content li,
+body.dark-mode .notes-content h2,
+body.dark-mode .notes-content h3,
+body.dark-mode .notes-content p,
+body.dark-mode .dictionary-entry h2,
+body.dark-mode .dictionary-definition p,
+body.dark-mode .wallet-body h2,
+body.dark-mode .wallet-card h3,
+body.dark-mode .wallet-card p,
+body.dark-mode .reminders-main-header h2,
+body.dark-mode .reminder-name,
+body.dark-mode .reminder-subtext {
+  color: #f5f5f7;
+}
+
+/* Textos secundarios */
+body.dark-mode .finder-breadcrumb,
+body.dark-mode .experience-date,
+body.dark-mode .note-meta,
+body.dark-mode .date,
+body.dark-mode .dictionary-entry-type,
+body.dark-mode .dictionary-pronunciation,
+body.dark-mode .wallet-brand,
+body.dark-mode .control-title,
+body.dark-mode .reminders-main-header p,
+body.dark-mode .section-title,
+body.dark-mode .dictionary-tag,
+body.dark-mode .finder-section-title,
+body.dark-mode .notes-sidebar-title {
+  color: #b3b3bb;
+}
+
+/* Tarjetas internas */
+body.dark-mode .featured-app-card,
+body.dark-mode .experience-item,
+body.dark-mode .notes-item.active,
+body.dark-mode .dictionary-item.active,
+body.dark-mode .reminder-row,
+body.dark-mode .wallet-logo-wrap {
+  background: rgba(44, 44, 52, 0.95);
+  border-color: rgba(255, 255, 255, 0.06);
+  color: #f5f5f7;
+}
+
+/* Sidebars */
+body.dark-mode .finder-sidebar,
+body.dark-mode .notes-sidebar,
+body.dark-mode .dictionary-sidebar,
+body.dark-mode .reminders-sidebar {
+  background: rgba(34, 34, 40, 0.92);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Inputs */
+body.dark-mode .mail-row,
+body.dark-mode .mail-message-wrap,
+body.dark-mode .mail-compose-header,
+body.dark-mode .app-mail #form-status,
+body.dark-mode .dictionary-search input,
+body.dark-mode .reminders-search input {
+  background: rgba(30, 30, 36, 0.96);
+  color: #f5f5f7;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+body.dark-mode .mail-row label,
+body.dark-mode .mail-row input,
+body.dark-mode .mail-message-wrap textarea,
+body.dark-mode .dictionary-search input,
+body.dark-mode .reminders-search input {
+  color: #f5f5f7;
+}
+
+body.dark-mode .mail-row input::placeholder,
+body.dark-mode .mail-message-wrap textarea::placeholder,
+body.dark-mode .dictionary-search input::placeholder,
+body.dark-mode .reminders-search input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* Menús laterales seleccionados */
+body.dark-mode .finder-menu li,
+body.dark-mode .dictionary-item,
+body.dark-mode .reminders-group-item,
+body.dark-mode .notes-item {
+  color: #e5e5ea;
+}
+
+body.dark-mode .finder-menu li.active,
+body.dark-mode .dictionary-item.active,
+body.dark-mode .reminders-group-item.active {
+  background: rgba(10, 132, 255, 0.22);
+  color: #5ac8fa;
+}
+
+/* Terminal */
+body.dark-mode .terminal-window {
+  background: #111214;
+}
+
+body.dark-mode .terminal-body {
+  background: radial-gradient(circle at top, #1a1b1f, #0c0d10);
+  color: #e6e6e6;
+}
+/* =========================
+   DARK MODE FIXES ESPECÍFICOS
+========================= */
+
+/* ---------- NOTES / EDUCACIÓN ---------- */
+body.dark-mode .notes-window {
+  background: rgba(28, 28, 32, 0.96);
+}
+
+body.dark-mode .notes-sidebar {
+  background: rgba(34, 34, 40, 0.92);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+body.dark-mode .notes-item {
+  background: transparent;
+}
+
+body.dark-mode .notes-item.active {
+  background: rgba(10, 132, 255, 0.18);
+}
+
+body.dark-mode .notes-item h4,
+body.dark-mode .notes-item p,
+body.dark-mode .notes-sidebar-title {
+  color: #f5f5f7;
+}
+
+body.dark-mode .note-page {
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      #1a1b20 0px,
+      #1a1b20 31px,
+      rgba(255,255,255,0.06) 32px
+    );
+}
+
+body.dark-mode .note-page h2,
+body.dark-mode .education-block h3,
+body.dark-mode .education-block p,
+body.dark-mode .note-meta,
+body.dark-mode .date {
+  color: #f5f5f7;
+}
+
+body.dark-mode .note-meta,
+body.dark-mode .date {
+  opacity: 0.72;
+}
+
+/* ---------- DICTIONARY / IDIOMAS ---------- */
+body.dark-mode .dictionary-sidebar {
+  background: rgba(34, 34, 40, 0.92);
+}
+
+body.dark-mode .dictionary-item {
+  background: transparent;
+}
+
+body.dark-mode .dictionary-item.active {
+  background: rgba(10, 132, 255, 0.22);
+}
+
+body.dark-mode .dictionary-word {
+  color: #f5f5f7;
+}
+
+body.dark-mode .dictionary-tag {
+  color: #b3b3bb;
+}
+
+body.dark-mode .dictionary-item.active .dictionary-word,
+body.dark-mode .dictionary-item.active .dictionary-tag {
+  color: #ffffff;
+}
+
+body.dark-mode .dictionary-entry-type,
+body.dark-mode .dictionary-pronunciation {
+  color: #b3b3bb;
+}
+
+body.dark-mode .dictionary-entry h2,
+body.dark-mode .dictionary-definition p {
+  color: #f5f5f7;
+}
+
+/* ---------- REMINDERS / COMPETENCIAS ---------- */
+body.dark-mode .reminders-sidebar {
+  background: rgba(34, 34, 40, 0.92);
+}
+
+body.dark-mode .reminders-group-item {
+  color: #f5f5f7;
+  background: transparent;
+}
+
+body.dark-mode .reminders-group-item.active {
+  background: rgba(10, 132, 255, 0.22);
+  color: #ffffff;
+}
+
+body.dark-mode .reminders-main-header h2,
+body.dark-mode .reminders-main-header p,
+body.dark-mode .section-title,
+body.dark-mode .reminder-name,
+body.dark-mode .reminder-subtext {
+  color: #f5f5f7;
+}
+
+body.dark-mode .reminder-subtext,
+body.dark-mode .reminders-main-header p {
+  opacity: 0.78;
+}
+
+body.dark-mode .reminder-row {
+  background: rgba(44, 44, 52, 0.82);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+/* ---------- WALLET / CERTIFICACIONES ---------- */
+body.dark-mode .wallet-body {
+  background: linear-gradient(180deg, #18181c 0%, #111216 100%);
+}
+
+body.dark-mode .wallet-card.google {
+  background: linear-gradient(135deg, #2a2b31, #3a3b44);
+  color: #f5f5f7;
+}
+
+body.dark-mode .wallet-card.google h3,
+body.dark-mode .wallet-card.google p,
+body.dark-mode .wallet-card.google .wallet-brand,
+body.dark-mode .wallet-card.google .wallet-logo-text {
+  color: #f5f5f7;
+}
+
+body.dark-mode .wallet-card.google .wallet-badge {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+/* ---------- APP STORE / PROYECTO DESTACADO ---------- */
+body.dark-mode .appstore-body {
+  background: rgba(24, 24, 28, 0.96);
+}
+
+body.dark-mode .featured-app-info h2 {
+  color: #b3b3bb;
+}
+
+body.dark-mode .featured-app-info h3 {
+  color: #f5f5f7;
+}
+
+body.dark-mode .featured-subtitle {
+  color: #b3b3bb;
+}
+
+body.dark-mode .featured-app-card {
+  background: rgba(44, 44, 52, 0.95);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+body.dark-mode .featured-app-card p {
+  color: #f5f5f7;
 }
