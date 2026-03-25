@@ -5,6 +5,9 @@ import { openCard, isCardOpen, setCardLanguage } from './cards.js';
 
 let currentLang = localStorage.getItem('lang') || 'es';
 let activeCardId = null;
+const idleHintEl = document.getElementById('idle-hint');
+const IDLE_DELAY = 120000; // 2 minutos
+let idleTimer = null;
 
 const translations = {
   es: {
@@ -19,7 +22,8 @@ const translations = {
     contact: 'Contacto',
     language: 'Idioma',
     appearance: 'Apariencia',
-    darkMode: 'Modo oscuro'
+    darkMode: 'Modo oscuro',
+    idleHint: 'Interactúa con los objetos para descubrir información'
   },
   ca: {
     about: 'Sobre mi',
@@ -33,7 +37,8 @@ const translations = {
     contact: 'Contacte',
     language: 'Idioma',
     appearance: 'Aparença',
-    darkMode: 'Mode fosc'
+    darkMode: 'Mode fosc',
+    idleHint: 'Interactua amb els objectes per descobrir informació'
   },
   en: {
     about: 'About',
@@ -47,7 +52,8 @@ const translations = {
     contact: 'Contact',
     language: 'Language',
     appearance: 'Appearance',
-    darkMode: 'Dark mode'
+    darkMode: 'Dark mode',
+    idleHint: 'Interact with objects to explore'
   }
 };
 const scene = new THREE.Scene();
@@ -327,6 +333,7 @@ window.addEventListener('click', () => {
   const cardId = hoveredRoot.userData.id;
   if (cardId){
     activeCardId = cardId;
+    hideIdleHint();
     openCard(cardId);
   }
 });
@@ -1527,7 +1534,33 @@ loader.load('assets/models/colonia_3.glb', (gltf) => {
   undefined,
   (err) => console.error('Error cargando modelo:', err)
 );
-  
+
+function showIdleHint() {
+  if (!idleHintEl) return;
+  if (isCardOpen) return;
+
+  idleHintEl.classList.remove('hidden');
+}
+
+function hideIdleHint() {
+  if (!idleHintEl) return;
+  idleHintEl.classList.add('hidden');
+}
+
+function resetIdleTimer() {
+  hideIdleHint();
+
+  if (idleTimer) {
+    clearTimeout(idleTimer);
+  }
+
+  idleTimer = setTimeout(() => {
+    if (!isCardOpen) {
+      showIdleHint();
+    }
+  }, IDLE_DELAY);
+}
+
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
@@ -1617,6 +1650,8 @@ function updateDateTime() {
 applyLanguageSelection(currentLang);
 updateDateTime();
 setInterval(updateDateTime, 60000);
+
+resetIdleTimer();
 document.addEventListener('click', (e) => {
   const btn = e.target.closest('.appstore-btn');
   if (!btn) return;
@@ -1629,6 +1664,7 @@ document.querySelectorAll('.menu-item[data-card]').forEach(item => {
   item.addEventListener('click', () => {
     const id = item.dataset.card;
     activeCardId = id;
+    hideIdleHint();
     openCard(id);
   });
 });
@@ -1649,7 +1685,9 @@ if (controlToggle && controlCenter) {
     }
   });
 }
-
+['mousemove', 'mousedown', 'click', 'keydown', 'touchstart'].forEach(eventName => {
+  window.addEventListener(eventName, resetIdleTimer, { passive: true });
+});
 function updateStaticTexts(lang) {
   const langTexts = translations[lang] || translations.es;
 

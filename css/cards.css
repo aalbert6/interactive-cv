@@ -2322,3 +2322,115 @@ body.dark-mode .featured-app-card {
 body.dark-mode .featured-app-card p {
   color: #f5f5f7;
 }
+
+/* =========================
+   IDLE HINT (Apple style)
+========================= */
+
+.idle-hint {
+  position: fixed;
+  inset: 0;
+  z-index: 100001;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+}
+
+.idle-hint.hidden {
+  display: none;
+}
+
+/* Caja tipo notificación Apple */
+.idle-hint-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 18px 22px;
+  border-radius: 20px;
+
+  background: rgba(28, 28, 32, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  color: #f5f5f7;
+
+  animation: idleNotificationIn 0.46s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center;
+}
+
+/* Icono */
+.idle-hint-icon {
+  font-size: 22px;
+  opacity: 0.9;
+}
+
+/* Texto */
+.idle-hint-text {
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* Animación Apple */
+@keyframes idleNotificationIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(14px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.02) translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+body.dark-mode .idle-hint-box {
+  background: rgba(40, 40, 45, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.idle-hint-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.08);
+  color: #f5f5f7;
+
+  animation: idleBellBounce 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes idleBellBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-10deg);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.08) rotate(4deg);
+  }
+  75% {
+    transform: scale(0.98) rotate(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
