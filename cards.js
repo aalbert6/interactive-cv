@@ -35,7 +35,7 @@ function getFormMessage(type) {
 export async function openCard(cardId) {
   isCardOpen = true;
   currentLang = localStorage.getItem('lang') || currentLang || 'es';
-  const url = `/cards/${currentLang}/${cardId}.html`;
+  const url = `./cards/${currentLang}/${cardId}.html`;
   console.log('Loading card:', url);
 
   try {
