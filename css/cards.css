@@ -1558,7 +1558,8 @@ body {
     display: block;
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    padding: 12px 14px;
+    padding: 10px 12px;
+    background: rgba(34, 34, 40, 0.92);
   }
 
   .dictionary-search {
@@ -1571,7 +1572,7 @@ body {
     gap: 8px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding-bottom: 4px;
+    padding-bottom: 2px;
     scrollbar-width: none;
   }
 
@@ -1581,28 +1582,50 @@ body {
 
   .dictionary-item {
     flex: 0 0 auto;
-    min-width: 120px;
-    padding: 10px 12px;
+    min-width: auto;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dictionary-item.active {
+    background: rgba(10, 132, 255, 0.22);
   }
 
   .dictionary-word {
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
   }
 
   .dictionary-tag {
-    font-size: 11px;
+    display: none;
   }
 
   .dictionary-content {
-    padding: 22px 18px 24px;
+    padding: 18px 16px 22px;
   }
 
   .dictionary-entry h2 {
-    font-size: 34px;
+    font-size: 30px;
+  }
+
+  .dictionary-pronunciation {
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  .dictionary-definition {
+    grid-template-columns: 20px 1fr;
+    gap: 10px;
   }
 
   .dictionary-definition p {
-    font-size: 16px;
+    font-size: 15px;
+    line-height: 1.6;
   }
 }
 
