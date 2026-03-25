@@ -1320,6 +1320,24 @@ loader.load(
 
 /* Interactive object */
 loader.load(
+  'assets/models/iphone.glb',
+  (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.05, 0.05, 0.05);
+    model.position.set(3.1, 0.76, -0.5);
+    model.rotation.y = Math.PI / 4;
+    model.userData.id = 'phone';
+    makeInteractive(model);
+    scene.add(model);
+
+    console.log('Modelo cargado correctamente');
+  },
+  undefined,
+  (err) => console.error('Error cargando modelo:', err)
+);
+
+/* Interactive object */
+loader.load(
   'assets/models/wallet.glb',
   (gltf) => {
     const model = gltf.scene;
