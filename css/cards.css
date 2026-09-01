@@ -631,12 +631,14 @@ body {
 .finder-body {
   display: grid;
   grid-template-columns: 220px 1fr;
-  min-height: 560px;
-  max-height: calc(82vh - 46px);
+  grid-template-rows: minmax(0, 1fr);
+  height: calc(82vh - 46px);
 }
 
 .finder-sidebar {
   padding: 18px 14px;
+  min-height: 0;
+  overflow-y: auto;
   background: rgba(242, 242, 247, 0.85);
   border-right: 1px solid rgba(0, 0, 0, 0.08);
 }
@@ -673,6 +675,7 @@ body {
 .finder-content {
   padding: 20px 24px 24px;
   overflow-y: auto;
+  min-height: 0;
   background: rgba(255, 255, 255, 0.9);
 }
 
@@ -2090,7 +2093,6 @@ body.dark-mode .mac-body h3,
 body.dark-mode .mac-body p,
 body.dark-mode .mac-body ul,
 body.dark-mode .finder-content h2,
-body.dark-mode .finder-content h3,
 body.dark-mode .finder-content p,
 body.dark-mode .finder-content li,
 body.dark-mode .notes-content h2,
